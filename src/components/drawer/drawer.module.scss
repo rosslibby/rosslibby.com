@@ -1,0 +1,111 @@
+.drawer {
+  background-color: #0e131bd1;
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(4, 1fr);
+  height: 100%;
+  padding: 1.25rem;
+  position: fixed;
+  left: 100%;
+  top: 0;
+  transform: translateX(0%);
+  transition: all 150ms linear;
+  width: 28rem;
+  z-index: 4;
+
+  &[data-target-id] {
+    transform: translateX(-100%);
+  }
+  &--show {
+    transform: translateX(-100%);
+  }
+  &--hide {
+    transform: translateX(0%);
+  }
+
+  .component {
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: grid;
+    padding: 2rem;
+    place-content: center;
+  }
+
+  .code {
+    background-color: #4481ff08;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: grid;
+    padding: 1.5rem 1.5rem 0;
+    position: relative;
+
+    pre {
+      margin: 0;
+      text-wrap: auto;
+
+      code {
+        &.hljs {
+          background: transparent;
+          overflow-x: visible;
+          padding: 0;
+
+          span {
+            line-height: 22px;
+          }
+
+          .highlight-line[style] {
+            --unread-color: #4482ff16;
+            position: relative;
+
+            &[data-unread] {
+              --unread-color: #4482ffae;
+              &::before {
+                animation: explain-dot-pulse 2.3s infinite linear;
+              }
+            }
+
+            &::before {
+              background-color: var(--unread-color);
+              content: '';
+              border-radius: 50%;
+              height: 6px;
+              left: -14px;
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              transition: all .25s ease;
+              width: 6px;
+            }
+          }
+        }
+      }
+    }
+
+    .explanation {
+      background-color: #4482ff;
+      border: 1px solid #4482ff6a;
+      border-radius: 2px;
+      color: #ffffff;
+      font-family: system-ui;
+      font-size: 12px;
+      font-weight: 300;
+      padding: 1px 6px 2px;
+      position: absolute;
+    }
+  }
+}
+
+@keyframes explain-dot-pulse {
+  0% {
+    outline: 0 solid #4482ff8f;
+  }
+  40% {
+    outline: 8px solid #4482ff00;
+  }
+  100% {
+    outline: 17px solid transparent;
+  }
+}
