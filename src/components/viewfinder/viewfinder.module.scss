@@ -1,0 +1,72 @@
+.viewfinder {
+  --x: 0px;
+  --y: 0px;
+  --height: 81px;
+  --width: 590px;
+  --paddingY: 13px;
+  --paddingX: 16px;
+  --transform: none;
+
+  animation-name: reveal-viewfinder;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-duration: 30ms;
+  background-color: #15244010;
+  box-shadow: 0 0 1px 1px #15244070 inset;
+  padding: var(--paddingY) var(--paddingX);
+  pointer-events: none;
+  position: absolute;
+  transform: scale(1);
+  z-index: 2;
+
+  height: var(--height);
+  width: var(--width);
+
+  left: calc(var(--x) - var(--paddingX));
+  top: calc(var(--y) - var(--paddingY));
+
+  .corner {
+    --border-color: #4482ff;
+    height: 0.75rem;
+    position: absolute;
+    width: 0.75rem;
+
+    &:nth-child(1) {
+      border-left: 1px solid;
+      border-top: 1px solid;
+      left: 0;
+      top: 0;
+      border-color: var(--border-color);
+    }
+    &:nth-child(2) {
+      border-right: 1px solid;
+      border-top: 1px solid;
+      right: 0;
+      top: 0;
+      border-color: var(--border-color);
+    }
+    &:nth-child(3) {
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+      bottom: 0;
+      right: 0;
+      border-color: var(--border-color);
+    }
+    &:nth-child(4) {
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+      bottom: 0;
+      left: 0;
+      border-color: var(--border-color);
+    }
+  }
+}
+
+@keyframes reveal-viewfinder {
+  0% {
+    transform: scale(.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
