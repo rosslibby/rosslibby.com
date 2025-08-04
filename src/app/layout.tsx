@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ViewfinderProvider } from "@/viewfinder-context";
+import { CursorProvider } from "@/cursor-context";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,9 +26,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
+      <CursorProvider>
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          
+          <ViewfinderProvider>
+            {children}
+          </ViewfinderProvider>
+        </body>
+      </CursorProvider>
     </html>
   );
 }
