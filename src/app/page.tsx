@@ -1,6 +1,6 @@
 'use client';
 
-import { Drawer, Target, ViewFinder } from '@/components';
+import { Drawer, Target } from '@/components';
 import styles from './page.module.scss';
 
 export default function Home() {
@@ -48,8 +48,6 @@ export default function Home() {
           <button data-target="true" data-target-id="1" data-component-id="counter">Click counter (<span id="counter"></span>)</button>
         </Target>
       </main>
-
-      <ViewFinder />
     </>
   );
 }
