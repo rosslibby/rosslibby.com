@@ -11,7 +11,7 @@ import { cursorCtx } from '@/cursor-context';
 const highlightColor = '#4482ff30';
 
 export const Drawer = () => {
-  const { targeting } = useCursor();
+  const { targeting } = useContext(cursorCtx);
   const attributes = {
     ...(targeting ? { 'data-target-id': targeting } : {}),
   };
@@ -27,7 +27,7 @@ export const Drawer = () => {
 };
 
 const Content = () => {
-  const { targeting } = useCursor();
+  const { targeting } = useContext(cursorCtx);
   const { insights } = useContext(viewfinderCtx);
 
   if (!targeting) return null;
