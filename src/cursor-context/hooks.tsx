@@ -9,19 +9,21 @@ export const useCursor = (
   const toggleMouseDown = useCallback((e: MouseEvent) => {
     setDown((prev) => !prev);
   }, [setDown]);
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    setCoordinates([e.clientX, e.clientY]);
-  }, [setCoordinates]);
+
+  const mouseMove = (e: MouseEvent) => setCoordinates([
+    e.clientX,
+    e.clientY,
+  ]);
 
   useEffect(() => {
-    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mousemove', mouseMove);
     document.addEventListener('mousedown', toggleMouseDown);
     document.addEventListener('mouseup', toggleMouseDown);
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mousemove', mouseMove);
       document.removeEventListener('mousedown', toggleMouseDown);
       document.removeEventListener('mouseup', toggleMouseDown);
     };
-  }, [handleMouseMove]);
+  }, [toggleMouseDown]);
 };
