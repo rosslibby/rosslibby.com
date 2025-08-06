@@ -4,9 +4,8 @@ import { useContext, useEffect, useRef } from 'react';
 import hljs from 'highlight.js';
 import { viewfinderCtx } from '@/viewfinder-context';
 import { TargetInsight } from '@/types';
-import { useCursor } from '../cursor';
-import styles from './drawer.module.scss';
 import { cursorCtx } from '@/cursor-context';
+import styles from './drawer.module.scss';
 
 const highlightColor = '#4482ff30';
 
