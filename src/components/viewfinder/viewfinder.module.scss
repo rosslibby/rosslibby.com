@@ -13,14 +13,14 @@
   animation-duration: 30ms;
   background-color: #15244010;
   box-shadow: 0 0 1px 1px #15244070 inset;
-  padding: var(--paddingY) var(--paddingX);
-  pointer-events: none;
+  box-sizing: content-box;
+
   position: absolute;
   transform: scale(1);
   z-index: 2;
 
-  height: var(--height);
-  width: var(--width);
+  height: calc(var(--height) + calc(var(--paddingY) * 2));
+  width: calc(var(--width) + calc(var(--paddingX) * 2));
 
   left: calc(var(--x) - var(--paddingX));
   top: calc(var(--y) - var(--paddingY));

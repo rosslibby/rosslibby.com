@@ -1,36 +1,12 @@
 'use client';
 
-import { RefObject, useContext, useEffect, useState } from 'react';
-import { TargetSpecs } from '@/types';
+import { useContext } from 'react';
 import { viewfinderCtx } from '@/viewfinder-context';
+import { useCursor } from '../cursor';
 
-export const useViewFinder = (
-  targetRef: RefObject<HTMLElement>,
-) => {
-  const { _: { setTargetSpecs } } = useContext(viewfinderCtx);
-  const [properties, setProperties] = useState<TargetSpecs>({
-    width: 0,
-    height: 0,
-    x: 0,
-    y: 0,
-  });
+export const useViewFinder = () => {
+  const { targeting } = useCursor();
+  const { focusing, targetSpecs } = useContext(viewfinderCtx);
 
-  const updateProperties = () => {
-    const target = targetRef.current;
-    if (!target) return;
-    setTargetSpecs({
-      height: target.offsetHeight,
-      width: target.offsetWidth,
-      x: target.offsetLeft,
-      y: target.offsetTop,
-    });
-  };
-
-  useEffect(() => {
-    if (targetRef?.current) {
-      updateProperties();
-    }
-  }, [targetRef, updateProperties]);
-
-  return { ...properties };
+  return { focusing, targeting, ...targetSpecs };
 };

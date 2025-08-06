@@ -1,25 +1,73 @@
 'use client';
 
-import { useContext, useState } from 'react';
+import { MouseEvent, useCallback, useContext, useRef, useState } from 'react';
 import { TargetInsight } from '@/types';
-import styles from './target.module.scss';
 import { viewfinderCtx } from '@/viewfinder-context';
+import { cursorCtx } from '@/cursor-context';
+import styles from './target.module.scss';
 
-export const Target = ({ children, insights }: {
+export const Target = ({ children, id, insights }: {
   children: React.ReactNode;
+  id: string;
   insights: TargetInsight[];
 }) => {
-  const { _: { setInsights } } = useContext(viewfinderCtx);
-  const [focused, setFocused] = useState(false);
+  const targetRef = useRef<HTMLDivElement>(null);
+  const { targeting, _: { setTargeting } } = useContext(cursorCtx);
+  const { focusing, _: {
+    setFocusing,
+    setInsights,
+    setTargetSpecs,
+  } } = useContext(viewfinderCtx);
+  const focused = id === focusing;
   const classname = focused ? styles.focused : '';
+  const isTarget = id === targeting;
+  // console.log(`[${id}] ${focused ? 'in focus' : 'not focused'}`);
 
-  const onHover = () => {
-    setFocused(true);
-    setInsights(insights);
-  };
+  // console.log('Focus:', focusing, focused)
+  const updateSpecs = useCallback(() => {
+    const target = targetRef.current;
+    if (!target) {
+      return;
+    }
+
+    setTargetSpecs({
+      height: target.offsetHeight,
+      width: target.offsetWidth,
+      x: target.offsetLeft,
+      y: target.offsetTop,
+    });
+  }, [focused, targetRef, setTargetSpecs]);
+
+  const mouseEnter = useCallback(() => {
+    if (focused) {
+      console.log('Already focused ---- terminate.')
+      return;
+    } else {
+      console.log('Currently focused:', focused, `${id} vs ${focusing}`);
+    }
+
+    setFocusing(id);
+    // setInsights(insights);
+    // setTargeting(id);
+    updateSpecs();
+  }, [id, focused, focusing, setFocusing]);
+
+  const mouseDown = useCallback(() => {
+    if (isTarget) {
+      return;
+    }
+
+    console.log('Set targeting to ', id);
+    setTargeting(targeting === id ? null : id);
+  }, [id, isTarget, targeting, setTargeting]);
 
   return (
-    <div className={classname}>
+    <div
+      className={classname}
+      onMouseDown={mouseDown}
+      onMouseEnter={mouseEnter}
+      ref={targetRef}
+    >
       {children}
     </div>
   );
