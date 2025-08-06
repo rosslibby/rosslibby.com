@@ -1,6 +1,6 @@
 'use client';
 
-import { MouseEvent, useCallback, useContext, useRef, useState } from 'react';
+import { useCallback, useContext, useRef } from 'react';
 import { TargetInsight } from '@/types';
 import { viewfinderCtx } from '@/viewfinder-context';
 import { cursorCtx } from '@/cursor-context';
@@ -20,10 +20,7 @@ export const Target = ({ children, id, insights }: {
   } } = useContext(viewfinderCtx);
   const focused = id === focusing;
   const classname = focused ? styles.focused : '';
-  const isTarget = id === targeting;
-  // console.log(`[${id}] ${focused ? 'in focus' : 'not focused'}`);
 
-  // console.log('Focus:', focusing, focused)
   const updateSpecs = useCallback(() => {
     const target = targetRef.current;
     if (!target) {
@@ -47,19 +44,17 @@ export const Target = ({ children, id, insights }: {
     }
 
     setFocusing(id);
-    // setInsights(insights);
-    // setTargeting(id);
     updateSpecs();
   }, [id, focused, focusing, setFocusing]);
 
   const mouseDown = useCallback(() => {
-    if (isTarget) {
+    if (targeting) {
       return;
     }
 
-    console.log('Set targeting to ', id);
-    setTargeting(targeting === id ? null : id);
-  }, [id, isTarget, targeting, setTargeting]);
+    setInsights(insights);
+    setTargeting(id);
+  }, [id, insights, setInsights, targeting, setTargeting]);
 
   return (
     <div
