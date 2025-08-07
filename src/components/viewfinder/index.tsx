@@ -2,12 +2,21 @@
 
 import { MouseEvent, useCallback, useContext } from 'react';
 import { viewfinderCtx } from '@/viewfinder-context';
+import { cursorCtx } from '@/cursor-context';
 import { useViewFinder } from './hooks';
+import { Locked, Scoped } from './corners';
 import styles from './viewfinder.module.scss';
 
 export const ViewFinder = () => {
+  const { targeting } = useContext(cursorCtx);
   const { _: { setFocusing } } = useContext(viewfinderCtx);
   const { focusing, height, width, x, y } = useViewFinder();
+
+  const classname = [
+    styles.viewfinder,
+    ...(targeting !== null ? [styles.targeting] : []),
+  ].join(' ');
+
   const style = {
     '--height': `${height}px`,
     '--width': `${width}px`,
@@ -22,17 +31,13 @@ export const ViewFinder = () => {
 
   return focusing !== null ? (
     <div
-      className={styles.viewfinder}
+      className={classname}
       style={style}
       onMouseOut={mouseLeave}
       onMouseLeave={() => console.log('mouse leave')}
     >
-      {Array.from(
-        { length: 4 },
-        (_, i) => <Corner key={`corner-${i}`} />,
-      )}
+      {targeting && <Locked />}
+      {!targeting && <Scoped />}
     </div>
   ) : null;
 };
-
-const Corner = () => <div className={styles.corner} />;
