@@ -25,7 +25,6 @@ export const ViewFinder = () => {
   } as React.CSSProperties;
 
   const mouseLeave = useCallback((e: MouseEvent) => {
-    console.log('We left')
     setFocusing(null);
   }, [focusing, setFocusing]);
 
@@ -34,7 +33,6 @@ export const ViewFinder = () => {
       className={classname}
       style={style}
       onMouseOut={mouseLeave}
-      onMouseLeave={() => console.log('mouse leave')}
     >
       {targeting && <Locked />}
       {!targeting && <Scoped />}

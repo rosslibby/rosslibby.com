@@ -37,10 +37,7 @@ export const Target = ({ children, id, insights }: {
 
   const mouseEnter = useCallback(() => {
     if (focused) {
-      console.log('Already focused ---- terminate.')
       return;
-    } else {
-      console.log('Currently focused:', focused, `${id} vs ${focusing}`);
     }
 
     setFocusing(id);

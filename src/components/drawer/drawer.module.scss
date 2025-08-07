@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/tokyo-night-dark.min.css');
+
 .drawer {
   background-color: #0e131bd1;
   backdrop-filter: blur(4px);
@@ -42,43 +44,46 @@
     padding: 1.5rem 1.5rem 0;
     position: relative;
 
+    .hlcode {
+      display: inline-block;
+    }
+
     pre {
       margin: 0;
       text-wrap: auto;
 
-      code {
-        &.hljs {
-          background: transparent;
-          overflow-x: visible;
-          padding: 0;
+      .highlighted {
+        background: transparent;
+        overflow-x: visible;
+        padding: 0;
 
-          span {
-            line-height: 22px;
+        span {
+          line-height: 22px;
+        }
+
+        .highlight {
+          background-color: #4482ff30;
+          --unread-color: #4482ff16;
+          position: relative;
+
+          &[data-unread] {
+            --unread-color: #4482ffae;
+            &::before {
+              animation: explain-dot-pulse 2.3s infinite linear;
+            }
           }
 
-          .highlight-line[style] {
-            --unread-color: #4482ff16;
-            position: relative;
-
-            &[data-unread] {
-              --unread-color: #4482ffae;
-              &::before {
-                animation: explain-dot-pulse 2.3s infinite linear;
-              }
-            }
-
-            &::before {
-              background-color: var(--unread-color);
-              content: '';
-              border-radius: 50%;
-              height: 6px;
-              left: -14px;
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-              transition: all .25s ease;
-              width: 6px;
-            }
+          &::before {
+            background-color: var(--unread-color);
+            content: '';
+            border-radius: 50%;
+            height: 6px;
+            left: -14px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all .25s ease;
+            width: 6px;
           }
         }
       }
