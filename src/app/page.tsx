@@ -1,6 +1,6 @@
 'use client';
 
-import { Drawer, Target } from '@/components';
+import { Drawer, Intro, Target } from '@/components';
 import styles from './page.module.scss';
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
           },
           { code: ');' },
         ]}>
-          <h1 data-target="true" data-target-id="0" data-component-id="intro">Hey, I'm <span>a Typescript developer</span>.</h1>
+          <Intro />
         </Target>
         <Target id="1" insights={[
           {
