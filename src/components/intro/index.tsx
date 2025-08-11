@@ -12,8 +12,7 @@ export const Intro = () => {
     <h1
       className={styles.heading}
       data-target="true"
-      data-target-id="0"
-      data-component-id="intro"
+      data-target-id="intro"
     >
       Hey, I'm <span className={styles.noun}>{noun}</span>.
     </h1>
