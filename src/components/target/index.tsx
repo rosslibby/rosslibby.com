@@ -5,6 +5,7 @@ import { TargetInsight } from '@/types';
 import { viewfinderCtx } from '@/viewfinder-context';
 import { cursorCtx } from '@/cursor-context';
 import styles from './target.module.scss';
+import { InlineViewfinder } from '../viewfinder';
 
 export const Target = ({ children, id, insights }: {
   children: React.ReactNode;
@@ -19,7 +20,10 @@ export const Target = ({ children, id, insights }: {
     setTargetSpecs,
   } } = useContext(viewfinderCtx);
   const focused = id === focusing;
-  const classname = focused ? styles.focused : '';
+  const classname = [
+    styles.target,
+    ...(focused ? [styles.focused] : []),
+  ].join(' ');
 
   const updateSpecs = useCallback(() => {
     const target = targetRef.current;
@@ -60,7 +64,10 @@ export const Target = ({ children, id, insights }: {
       onMouseEnter={mouseEnter}
       ref={targetRef}
     >
-      {children}
+      <div className={styles.component}>
+        {children}
+      </div>
+      <InlineViewfinder id={id} />
     </div>
   );
 };
