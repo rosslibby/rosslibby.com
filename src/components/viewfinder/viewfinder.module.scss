@@ -1,14 +1,9 @@
 .viewfinder {
-  --x: 0px;
-  --y: 0px;
-  --height: 81px;
-  --width: 590px;
   --paddingY: 13px;
   --paddingX: 16px;
-  --transform: none;
   --corner-animation-direction: normal;
 
-  animation-name: reveal-viewfinder-inline;
+  animation-name: reveal-viewfinder;
   animation-iteration-count: 1;
   animation-timing-function: linear;
   animation-duration: 30ms;
@@ -76,15 +71,6 @@
 }
 
 @keyframes reveal-viewfinder {
-  0% {
-    transform: scale(.9);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes reveal-viewfinder-inline {
   0% {
     transform: scale(.9) translate(-50%, -50%);
   }
