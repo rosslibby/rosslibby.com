@@ -7,8 +7,6 @@ import { TargetInsight } from '@/types';
 import { cursorCtx } from '@/cursor-context';
 import styles from './drawer.module.scss';
 
-const highlightColor = '#4482ff30';
-
 export const Drawer = () => {
   const { targeting } = useContext(cursorCtx);
   const attributes = {
@@ -43,13 +41,6 @@ type Explanation = {
   explanation: string;
   line: number;
 };
-type exp = {
-  explanations: {
-    explanation: string;
-    line: number;
-  }[];
-  lines: string[];
-}
 
 const Code = () => {
   const codeRef = useRef<HTMLElement>(null);
@@ -59,8 +50,6 @@ const Code = () => {
   const [parsedTarget, setParsedTarget] = useState<string | null>(targeting);
   const [explanations, setExplanations] = useState<Explanation[]>([]);
   const [lines, setLines] = useState<string[]>([]);
-  const [hlLines, setHlLines] = useState<string[]>([]);
-  const [hlels, setHlels] = useState<React.ReactNode[]>([]);
   const [ready, setReady] = useState(false);
 
   const parseCode = useCallback((targeting: string | null) => {
@@ -85,12 +74,9 @@ const Code = () => {
     const code = container.querySelector('code') as HTMLElement;
     code.removeAttribute('data-highlighted');
     hljs.highlightAll();
-    setTimeout(() => {
-      const codeLines = highlighter(code);
-      setHlLines(codeLines);
-      setReady(true);
-    }, 100);
-  }, [explanations, lines, setHlLines, setReady]);
+    highlighter(code);
+    setReady(true);
+  }, [explanations, lines, setReady]);
 
   const uhlll = useCallback(() => {
     const code = codeRef.current;
