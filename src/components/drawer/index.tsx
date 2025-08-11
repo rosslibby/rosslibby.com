@@ -83,14 +83,7 @@ const Code = () => {
 
   const highlight = useCallback((container: HTMLPreElement) => {
     const code = container.querySelector('code') as HTMLElement;
-    console.log('Explanations:', explanations);
-    console.log('Lines:', lines);
-
-    const highlightLines = explanations.map(({ line }) => ({
-      start: line,
-      end: line,
-      color: highlightColor,
-    }));
+    code.removeAttribute('data-highlighted');
     hljs.highlightAll();
     setTimeout(() => {
       const codeLines = highlighter(code);
@@ -100,7 +93,6 @@ const Code = () => {
   }, [explanations, lines, setHlLines, setReady]);
 
   const uhlll = useCallback(() => {
-    console.log(explanations)
     const code = codeRef.current;
     if (!code) {
       return;
@@ -137,10 +129,7 @@ const Code = () => {
 
   useEffect(() => {
     if (parsedTarget === null || !preRef.current) {
-      console.log('exiting hl')
       return;
-    } else {
-      console.log('running hl')
     }
 
     highlight(preRef.current);
@@ -186,7 +175,6 @@ function getExplanations(insights: TargetInsight[]): {
     lineNumber += code.length ? 1 : 2;
   });
 
-  console.log('created:', lines)
   return { explanations, lines };
 }
 
