@@ -9,10 +9,6 @@
   bottom: -100px;
   left: -100px;
 
-  &.unfocused {
-    animation: none;
-  }
-
   svg {
     left: 50%;
     pointer-events: none;
@@ -62,6 +58,16 @@
       transform: translate(-50%, -50%);
       width: 100%;
       z-index: 10;
+    }
+  }
+
+  &.unfocused {
+    animation: none;
+    box-shadow: none;
+    outline: none;
+
+    &::after, &::before {
+      display: none;
     }
   }
 
