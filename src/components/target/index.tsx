@@ -51,7 +51,7 @@ export const Target = ({ children, id, insights }: {
       <div className={styles.component}>
         {children}
       </div>
-      <Viewfinder id={id} />
+      <Viewfinder id={id} target={targetRef} />
     </div>
   );
 };

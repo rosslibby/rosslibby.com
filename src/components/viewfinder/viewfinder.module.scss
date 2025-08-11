@@ -1,6 +1,7 @@
 .viewfinder {
   --paddingY: 13px;
   --paddingX: 16px;
+  --width: 100%;
   --corner-animation-direction: normal;
 
   animation-name: reveal-viewfinder;
@@ -14,12 +15,14 @@
   z-index: 1;
 
   height: calc(100% + calc(var(--paddingY) * 2));
-  width: calc(100% + calc(var(--paddingX) * 2));
+  width: calc(var(--width) + calc(var(--paddingX) * 2));
 
   left: 50%;
   top: 50%;
 
   transform: scale(1) translate(-50%, -50%);
+
+  transition: width 350ms ease;
 
   .corner {
     --border-color: #4482ff;
