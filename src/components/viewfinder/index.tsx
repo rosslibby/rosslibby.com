@@ -26,7 +26,7 @@ export const Viewfinder = ({ id, target }: {
     setFocusing(null);
   }, [focusing, setFocusing]);
 
-  if (focusing !== id) {
+  if (focusing !== id && targeting !== id) {
     return null;
   }
 
