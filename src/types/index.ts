@@ -1,5 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 
+export * from './drawer';
+
 export interface ViewfinderCtx {
   focusing: string | null;
   insights: TargetInsight[];
