@@ -30,11 +30,6 @@ body {
   width: 100vw;
 }
 
-[data-target] {
-  cursor: none;
-  position: relative;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -62,8 +57,4 @@ body {
   display: grid;
   overflow: hidden;
   place-items: center;
-}
-
-[data-target] {
-  position: relative;
 }
