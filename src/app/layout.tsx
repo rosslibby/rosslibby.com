@@ -21,8 +21,8 @@ export default function RootLayout({
           <ViewfinderProvider>
             {children}
             <ViewFinder />
+            <Cursor />
           </ViewfinderProvider>
-          <Cursor />
         </body>
       </CursorProvider>
     </html>
