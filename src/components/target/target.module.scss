@@ -1,6 +1,10 @@
 .target {
   position: relative;
 
+  &:hover {
+    cursor: none !important;
+  }
+
   .component {
     position: relative;
     z-index: 2;
