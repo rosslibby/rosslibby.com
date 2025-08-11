@@ -4,7 +4,6 @@ export interface ViewfinderCtx {
   focusing: string | null;
   insights: TargetInsight[];
   viewfinder: boolean;
-  targetSpecs: TargetSpecs;
   _: Record<string, Dispatch<SetStateAction<any>>>;
 }
 
