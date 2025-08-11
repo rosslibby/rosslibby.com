@@ -9,6 +9,10 @@
   bottom: -100px;
   left: -100px;
 
+  &.unfocused {
+    animation: none;
+  }
+
   svg {
     left: 50%;
     pointer-events: none;
