@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Drawer />
       <main className={styles.main}>
-        <Target id="0" insights={[
+        <Target id="intro" insights={[
           {
             code: 'const { noun } = useIntro();',
             explanation: 'Get the "noun" variable from the useIntro() hook',
@@ -23,7 +23,7 @@ export default function Home() {
         ]}>
           <Intro />
         </Target>
-        <Target id="1" insights={[
+        <Target id="counter" insights={[
           {
             code: 'const [count, setCount] = useState(0);',
             explanation: 'Set a variable to track a count starting from 0',
@@ -45,7 +45,7 @@ export default function Home() {
           },
           { code: ');' },
         ]}>
-          <button data-target="true" data-target-id="1" data-component-id="counter">Click counter (<span id="counter"></span>)</button>
+          <button data-target="true" data-target-id="counter">Click counter (<span></span>)</button>
         </Target>
       </main>
     </>
