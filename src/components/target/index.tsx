@@ -4,8 +4,8 @@ import { useCallback, useContext, useRef } from 'react';
 import { TargetInsight } from '@/types';
 import { viewfinderCtx } from '@/viewfinder-context';
 import { cursorCtx } from '@/cursor-context';
+import { Viewfinder } from '../viewfinder';
 import styles from './target.module.scss';
-import { InlineViewfinder } from '../viewfinder';
 
 export const Target = ({ children, id, insights }: {
   children: React.ReactNode;
@@ -17,7 +17,6 @@ export const Target = ({ children, id, insights }: {
   const { focusing, _: {
     setFocusing,
     setInsights,
-    setTargetSpecs,
   } } = useContext(viewfinderCtx);
   const focused = id === focusing;
   const classname = [
@@ -25,27 +24,12 @@ export const Target = ({ children, id, insights }: {
     ...(focused ? [styles.focused] : []),
   ].join(' ');
 
-  const updateSpecs = useCallback(() => {
-    const target = targetRef.current;
-    if (!target) {
-      return;
-    }
-
-    setTargetSpecs({
-      height: target.offsetHeight,
-      width: target.offsetWidth,
-      x: target.offsetLeft,
-      y: target.offsetTop,
-    });
-  }, [focused, targetRef, setTargetSpecs]);
-
   const mouseEnter = useCallback(() => {
     if (focused) {
       return;
     }
 
     setFocusing(id);
-    updateSpecs();
   }, [id, focused, focusing, setFocusing]);
 
   const mouseDown = useCallback(() => {
@@ -67,7 +51,7 @@ export const Target = ({ children, id, insights }: {
       <div className={styles.component}>
         {children}
       </div>
-      <InlineViewfinder id={id} />
+      <Viewfinder id={id} />
     </div>
   );
 };
