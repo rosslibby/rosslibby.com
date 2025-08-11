@@ -48,7 +48,7 @@ export const Target = ({ children, id, insights }: {
       onMouseEnter={mouseEnter}
       ref={targetRef}
     >
-      <div className={styles.component}>
+      <div className={styles.component} data-target-id={id}>
         {children}
       </div>
       <Viewfinder id={id} target={targetRef} />

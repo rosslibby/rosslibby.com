@@ -9,11 +9,7 @@ export const Intro = () => {
   const { noun } = useIntro();
 
   return (
-    <h1
-      className={styles.heading}
-      data-target="true"
-      data-target-id="intro"
-    >
+    <h1 className={styles.heading}>
       Hey, I'm <span className={styles.noun}>{noun}</span>.
     </h1>
   );
