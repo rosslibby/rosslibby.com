@@ -18,7 +18,7 @@
   width: 28rem;
   z-index: 4;
 
-  &[data-target-id] {
+  &[data-targeting] {
     transform: translateX(-100%);
   }
   &--show {
