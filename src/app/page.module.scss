@@ -7,27 +7,4 @@
   height: 100vh;
   justify-content: center;
   width: 100vw;
-
-  h1 {
-    color: #ffffff;
-    font-size: 2.4rem;
-    font-weight: 300;
-    margin: 0;
-
-    span {
-      color: #4482ff;
-    }
-  }
-
-  button {
-    background: linear-gradient(45deg, #191b27, #0b1b27);
-    border: 1px solid #5c98ff48;
-    border-radius: 30px;
-    box-sizing: border-box;
-    color: #5c98ff9b;
-    font-family: Inter, sans-serif;
-    font-size: 22px;
-    font-weight: 200;
-    padding: 14px 26px;
-  }
 }
