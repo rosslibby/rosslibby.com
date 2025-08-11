@@ -23,7 +23,11 @@ export const useDrawerComponent = () => {
     const target = document.querySelector(
       `[data-target-id="${targetId}"]`
     ) as HTMLElement;
-    console.log('Target is:', target);
+
+    if (!target) {
+      return;
+    }
+
     const clone = document.createElement(target.nodeName);
     clone.className = target.className;
     clone.innerHTML = target.innerHTML;
