@@ -35,7 +35,6 @@ export const ViewfinderProvider = ({ children }: {
       <viewfinderCtx.Provider value={{ ...values, _: fns }}>
         {children}
       </viewfinderCtx.Provider>
-      <Cursor />
     </>
   );
 };
