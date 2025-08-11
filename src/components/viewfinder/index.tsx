@@ -39,3 +39,30 @@ export const ViewFinder = () => {
     </div>
   ) : null;
 };
+
+export const InlineViewfinder = ({ id }: {
+  id: string;
+}) => {
+  const { focusing, _: { setFocusing } } = useContext(viewfinderCtx);
+  const { targeting } = useContext(cursorCtx);
+  const classname = [
+    styles.viewfinder,
+    styles.inline,
+    ...(targeting === id ? [styles.targeting] : []),
+  ].join(' ');
+
+  const mouseLeave = useCallback((e: MouseEvent) => {
+    setFocusing(null);
+  }, [focusing, setFocusing]);
+
+  if (focusing !== id) {
+    return null;
+  }
+
+  return (
+    <div className={classname} onMouseOut={mouseLeave}>
+      {targeting && <Locked />}
+      {!targeting && <Scoped />}
+    </div>
+  );
+};

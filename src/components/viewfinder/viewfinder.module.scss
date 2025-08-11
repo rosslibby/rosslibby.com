@@ -24,6 +24,16 @@
   left: calc(var(--x) - var(--paddingX));
   top: calc(var(--y) - var(--paddingY));
 
+  &.inline {
+    animation-name: reveal-viewfinder-inline;
+    height: calc(100% + calc(var(--paddingY) * 2));
+    left: 50%;
+    top: 50%;
+    transform: scale(1) translate(-50%, -50%);
+    width: calc(100% + calc(var(--paddingX) * 2));
+    z-index: 1;
+  }
+
   .corner {
     --border-color: #4482ff;
     height: 0.75rem;
@@ -79,6 +89,15 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes reveal-viewfinder-inline {
+  0% {
+    transform: scale(.9) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
   }
 }
 
