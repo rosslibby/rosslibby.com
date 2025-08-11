@@ -1,3 +1,4 @@
+export * from './counter';
 export * from './cursor';
 export * from './drawer';
 export * from './intro';
