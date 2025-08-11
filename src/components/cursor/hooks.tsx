@@ -2,8 +2,10 @@
 
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { cursorCtx } from '@/cursor-context';
+import { viewfinderCtx } from '@/viewfinder-context';
 
 export const useCursor = () => {
+  const { focusing } = useContext(viewfinderCtx);
   const { coordinates, down, targeting } = useContext(cursorCtx);
   const [x, y] = coordinates;
   const [released, setReleased] = useState(false);
@@ -23,6 +25,7 @@ export const useCursor = () => {
 
   return {
     down,
+    focusing,
     released,
     targeting,
     x,
