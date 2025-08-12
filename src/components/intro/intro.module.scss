@@ -3,8 +3,20 @@
   font-size: 2.4rem;
   font-weight: 300;
   margin: 0;
+  text-align: center;
+  transition: all 350ms ease;
+  width: fit-content;
 
   .noun {
     color: #4482ff;
+    transition: all 350ms ease;
   }
+}
+
+.prerender {
+  position: absolute;
+  right: 100%;
+  top: 100%;
+  opacity: 0;
+  z-index: -1;
 }
