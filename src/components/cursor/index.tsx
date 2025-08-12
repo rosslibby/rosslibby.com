@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { useCursor } from './hooks';
 import styles from './cursor.module.scss';

@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { cursorCtx } from '@/cursor-context';

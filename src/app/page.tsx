@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { Counter, Intro, Target } from '@/components';
 import styles from './page.module.scss';
