@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { createContext, useState } from 'react';
 import { TargetInsight, ViewfinderCtx } from '@/types';

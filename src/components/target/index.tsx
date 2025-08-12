@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { useCallback, useContext, useRef } from 'react';
 import { TargetInsight } from '@/types';

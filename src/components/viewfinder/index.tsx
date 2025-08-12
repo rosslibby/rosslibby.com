@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { RefObject, useCallback, useContext } from 'react';
 import { viewfinderCtx } from '@/viewfinder-context';

@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { useIntro } from './hooks';
 import styles from './intro.module.scss';
