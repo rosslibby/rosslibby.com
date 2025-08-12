@@ -36,3 +36,31 @@
     place-content: center;
   }
 }
+
+.tooltip {
+  box-sizing: border-box;
+  display: grid;
+  gap: 2rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 18rem;
+  min-width: 24rem;
+  width: max-content;
+  height: max-content;
+  padding: 1.25rem;
+  position: fixed;
+  grid-template-rows: max-content max-content;
+  border-radius: 8px;
+  background-color: #3d87ff;
+  transition: all 150ms linear;
+  z-index: 4;
+
+  .component {
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: grid;
+    padding: 2rem;
+    place-content: center;
+  }
+}
