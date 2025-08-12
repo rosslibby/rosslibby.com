@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
+import { TargetInsight } from './target';
 
 export * from './drawer';
+export * from './target';
 
 export interface ViewfinderCtx {
   focusing: string | null;
@@ -8,18 +10,6 @@ export interface ViewfinderCtx {
   viewfinder: boolean;
   _: Record<string, Dispatch<SetStateAction<any>>>;
 }
-
-export type TargetSpecs = {
-  height: number;
-  width: number;
-  x: number;
-  y: number;
-};
-
-export type TargetInsight = {
-  code: string;
-  explanation?: string;
-};
 
 export interface CursorCtx {
   coordinates: [number, number];

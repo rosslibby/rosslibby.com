@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ViewfinderProvider } from '@/viewfinder-context';
 import { CursorProvider } from '@/cursor-context';
 import { Cursor, Drawer } from '@/components';
+import { DrawerProvider } from '@/drawer-context';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -19,9 +20,11 @@ export default function RootLayout({
       <CursorProvider>
         <body>
           <ViewfinderProvider>
-            <Drawer />
-            {children}
-            <Cursor />
+            <DrawerProvider>
+              <Drawer />
+              {children}
+              <Cursor />
+            </DrawerProvider>
           </ViewfinderProvider>
         </body>
       </CursorProvider>
