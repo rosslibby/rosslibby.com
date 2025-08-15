@@ -46,13 +46,17 @@ export const useIntro = ({
 
   const preRender = useCallback(async (noun: string) => {
     const bounds = await prerender(targetId, noun);
+    const [prevWidth] = dimensions;
+    const widthDecreased = prevWidth > bounds.width;
+    const delay = widthDecreased ? 0 : 350;
+
     setDimensions([bounds.width, bounds.height]);
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(true);
-      }, 350);
+      }, delay);
     });
-  }, [targetId, setDimensions]);
+  }, [dimensions, targetId, setDimensions]);
 
   useEffect(() => {
     const cycle = (e: KeyboardEvent) => {
