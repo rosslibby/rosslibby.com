@@ -29,19 +29,20 @@ export const useIntro = ({
   const [noun, setNoun] = useState(nouns[0]);
   const [dimensions, setDimensions] = useState<[number, number]>([0, 0]);
 
-  const getRandomNoun = useCallback(async () => {
-    const list = nouns.filter((noun) => !history.includes(noun));
-    if (!list.length) {
-      setHistory([nouns[0]]);
-      return nouns[0];
-    }
+  const selectNoun = useCallback((): string => {
+    const available = nouns.filter((n) => !history.includes(n));
+    const index = Math.floor(Math.random() * available.length);
+    const noun = available[index] || nouns[index];
+    setHistory((entries) => !available.length ? [noun] : [...entries, noun]);
+    return noun;
+  }, [history, setHistory]);
 
-    const index = Math.floor(Math.random() * list.length);
-    const noun = list[index];
+  const cycleIntro = useCallback(async () => {
+    const noun = selectNoun();
     await preRender(noun);
     setHistory((prev) => [...prev, noun]);
     setNoun(noun);
-  }, [history, setHistory, setNoun]);
+  }, [selectNoun, setNoun]);
 
   const preRender = useCallback(async (noun: string) => {
     const bounds = await prerender(targetId, noun);
@@ -56,7 +57,7 @@ export const useIntro = ({
   useEffect(() => {
     const cycle = (e: KeyboardEvent) => {
       if (e.key === ' ') {
-        getRandomNoun();
+        cycleIntro();
       }
     };
     let timer: NodeJS.Timeout | null
@@ -65,7 +66,7 @@ export const useIntro = ({
       document.addEventListener('keydown', cycle);
     } else {
       timer = setInterval(() => {
-        getRandomNoun();
+        cycleIntro();
       }, 3600);
     }
 
