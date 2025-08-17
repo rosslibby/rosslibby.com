@@ -1,0 +1,12 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 100% 0%;
+  grid-template-rows: 100vh;
+  height: 100vh;
+  transition: all 350ms ease;
+  width: 100vw;
+
+  &.expanded {
+    grid-template-columns: 60% 40%;
+  }
+}

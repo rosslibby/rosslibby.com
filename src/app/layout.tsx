@@ -21,8 +21,8 @@ export default function RootLayout({
         <body>
           <ViewfinderProvider>
             <DrawerProvider>
-              <Drawer />
               {children}
+              <Drawer />
               <Cursor />
             </DrawerProvider>
           </ViewfinderProvider>
