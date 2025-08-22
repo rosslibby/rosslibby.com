@@ -1,17 +1,19 @@
 .heading {
   color: #ffffff;
-  font-family: Helvetica Neue, sans-serif;
+  color: var(--text-primary);
+  // font-family: Helvetica Neue, sans-serif;
   font-size: 22px;
-  font-weight: 200;
+  font-weight: 300;
   margin: 0;
   text-align: center;
   width: fit-content;
+  letter-spacing: -0.5px;
 
   text-align: left;
 
   .noun {
     color: #4482ff;
-    letter-spacing: 1px;
+    // letter-spacing: 1px;
 
     &::before {
       content: '>';

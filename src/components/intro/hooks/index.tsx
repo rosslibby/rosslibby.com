@@ -29,7 +29,7 @@ const nouns = [
   'e-commerce enthusiast',
   'GraphQL developer',
   'mentor',
-  'self-taught programmer',
+  // 'self-taught programmer',
   'musician',
   'React developer',
 ];

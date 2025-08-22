@@ -10,6 +10,17 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --bg-main: #0a0b10;
+    --text-primary: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --bg-main: #ffffff;
+    --text-primary: #0a0b10;
   }
 }
 
