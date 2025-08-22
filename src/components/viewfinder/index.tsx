@@ -11,12 +11,13 @@ export const Viewfinder = ({ id, target }: {
   id: string;
   target: RefObject<HTMLDivElement | null>;
 }) => {
-  const { focusing, _: { setFocusing } } = useContext(viewfinderCtx);
+  const { focusing, presize, _: { setFocusing } } = useContext(viewfinderCtx);
   const { targeting } = useContext(cursorCtx);
   const { width } = useViewfinder(target);
 
   const classname = [
     styles.viewfinder,
+    ...(presize ? [styles.presize] : []),
     ...(targeting === id ? [styles.targeting] : []),
   ].join(' ');
 

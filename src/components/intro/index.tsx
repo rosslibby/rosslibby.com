@@ -1,11 +1,14 @@
 'use client'
 
+import { useContext } from 'react';
 import { useIntro } from './hooks';
+import { viewfinderCtx } from '@/viewfinder-context';
 import styles from './intro.module.scss';
 
 export * from './hooks';
 
 export const Intro = () => {
+  const { presize } = useContext(viewfinderCtx);
   const { dimensions: [width, height], current, noun } = useIntro({
     targetId: 'intro',
     manualCycle: false,
@@ -13,7 +16,7 @@ export const Intro = () => {
 
   const style = {
     height: height ? `${height}px` : 'auto',
-    width: width ? `${width}px` : 'auto',
+    width: presize && width ? `${width}px` : 'auto',
   } as React.CSSProperties;
 
   return (

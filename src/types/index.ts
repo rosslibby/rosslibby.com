@@ -7,6 +7,7 @@ export * from './target';
 export interface ViewfinderCtx {
   focusing: string | null;
   insights: TargetInsight[];
+  presize: boolean;
   viewfinder: boolean;
   _: Record<string, Dispatch<SetStateAction<any>>>;
 }
