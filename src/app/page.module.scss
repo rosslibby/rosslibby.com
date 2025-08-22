@@ -16,8 +16,47 @@
   padding: 1.2rem 1.2rem;
   border-radius: 4px;
   background: #0f141d;
-  font-weight: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   width: max-content;
   margin-top: 1.25rem;
-  color: #8ba0ff;
+  color: #a2b0ca;
+
+  h3 {
+    color: #a6c7ffbb;
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  a {
+    color: #a6c7ff64;
+    text-decoration: none;
+
+    &:hover {
+      color: #a6c7ffbb;
+    }
+  }
+}
+
+.npmPackage {
+  background: #ffffff;
+  border-radius: 8px;
+  outline: 10px solid #78a4ff21;
+  padding: 1rem;
+
+  h3 {
+    color: #0a0b10;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    color: black;
+  }
 }

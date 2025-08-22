@@ -2,6 +2,7 @@
 
 import { Counter, Intro, Target } from '@/components';
 import styles from './page.module.scss';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -21,10 +22,47 @@ export default function Home() {
       ]}>
         <Intro />
       </Target>
-      <div>
-        NPM packages:
-        <div>
-          @notross/redis-hub
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '0.5rem',
+      }}>
+        <span>NPM packages:</span>
+        <div style={{
+          display: 'flex',
+          gap: '0.5rem',
+        }}>
+          <div className={styles.npmPackage}>
+            <h3>Redis Hub</h3>
+            <p>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients (e.g., publisher, subscriber, per-user, per-namespace) with centralized config and event tracking.</p>
+            <Link
+              href="https://www.npmjs.com/package/@notross/redis-hub"
+              target="_blank"
+              rel="noopener noreferrer"
+            >@notross/redis-hub</Link>
+          </div>
+          <div className={styles.npmPackage}>
+            <h3>Mongo Singleton</h3>
+            <div className={styles.about}>
+              <p></p>
+              <Link
+                href="https://www.npmjs.com/package/@notross/mongo-singleton"
+                target="_blank"
+                rel="noopener noreferrer"
+              >@notross/mongo-singleton</Link>
+            </div>
+          </div>
+          <div className={styles.npmPackage}>
+            <h3>React Waveform</h3>
+            <div className={styles.about}>
+              <p></p>
+              <Link
+                href="https://www.npmjs.com/package/@notross/react-waveform"
+                target="_blank"
+                rel="noopener noreferrer"
+              >@notross/react-waveform</Link>
+            </div>
+          </div>
         </div>
       </div>
       {/* <Target id="counter" insights={[
