@@ -28,6 +28,7 @@ export const useIntro = ({
   const [history, setHistory] = useState<string[]>([nouns[0]]);
   const [noun, setNoun] = useState(nouns[0]);
   const [dimensions, setDimensions] = useState<[number, number]>([0, 0]);
+  const { current, update } = useTyping(noun);
 
   const selectNoun = useCallback((): string => {
     const available = nouns.filter((n) => !history.includes(n));
@@ -42,7 +43,8 @@ export const useIntro = ({
     await preRender(noun);
     setHistory((prev) => [...prev, noun]);
     setNoun(noun);
-  }, [selectNoun, setNoun]);
+    update(noun);
+  }, [selectNoun, setNoun, update]);
 
   const preRender = useCallback(async (noun: string) => {
     const bounds = await prerender(targetId, noun);
@@ -86,7 +88,7 @@ export const useIntro = ({
     };
   }, [manualCycle, noun]);
 
-  return { dimensions, noun };
+  return { current, dimensions, noun };
 };
 
 async function prerender(targetId: string, noun: string): Promise<DOMRect> {
@@ -108,3 +110,76 @@ async function prerender(targetId: string, noun: string): Promise<DOMRect> {
     });
   });
 }
+
+const useTyping = (initialText: string) => {
+  const [typing, setTyping] = useState(true);
+  const [backspacing, setBackspacing] = useState(false);
+  const [nextText, setNextText] = useState('');
+  const [text, setText] = useState(initialText);
+  const [textIndex, setTextIndex] = useState(0);
+  const max = text.length;
+  const current = text.substring(0, textIndex);
+
+  const update = (text: string) => {
+    setNextText(text);
+    // setTextIndex(0);
+    // setTyping(true);
+    setBackspacing(true);
+  };
+
+  const typeText = useCallback(() => {
+    setTextIndex((prev) => prev + 1);
+  }, [setTextIndex]);
+
+  const backspace = useCallback(() => {
+    if (textIndex > 0) {
+      setTextIndex((prev) => prev - 1);
+    } else {
+      setBackspacing(false);
+      setTyping(true);
+      setText(nextText);
+    }
+  }, [nextText, textIndex, setTextIndex, setBackspacing, setTyping, update, setText]);
+
+  const complete = () => {
+    setTyping(false);
+  };
+
+  useEffect(() => {
+    if (textIndex >= max) {
+      complete();
+    }
+  }, [max, textIndex]);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null;
+
+    if (typing) {
+      interval = setInterval(() => typeText(), 75);
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+      }
+    }
+  }, [typing, typeText]);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null;
+
+    if (backspacing) {
+      interval = setInterval(() => backspace(), 30);
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+      }
+    }
+  }, [backspace, backspacing]);
+
+  return { current, update };
+};

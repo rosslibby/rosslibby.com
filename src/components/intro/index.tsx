@@ -6,7 +6,7 @@ import styles from './intro.module.scss';
 export * from './hooks';
 
 export const Intro = () => {
-  const { dimensions: [width, height], noun } = useIntro({
+  const { dimensions: [width, height], current, noun } = useIntro({
     targetId: 'intro',
     manualCycle: false,
   });
@@ -18,7 +18,7 @@ export const Intro = () => {
 
   return (
     <h1 className={styles.heading} style={style}>
-      Hey, I'm <span className={styles.noun}>{noun}</span>.
+      Hey, I'm <span className={styles.noun}>{current}</span>.
     </h1>
   );
 };
