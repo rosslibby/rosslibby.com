@@ -21,6 +21,12 @@ export default function Home() {
       ]}>
         <Intro />
       </Target>
+      <div>
+        NPM packages:
+        <div>
+          @notross/redis-hub
+        </div>
+      </div>
       {/* <Target id="counter" insights={[
         {
           code: 'const [count, setCount] = useState(0);',
