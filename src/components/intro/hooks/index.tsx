@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTyping } from './typing';
 import styles from '../intro.module.scss';
 
-const nouns = [
+const _nouns = [
   'a Staff software engineer',
   'a Typescript developer',
   'a full-stack engineer',
@@ -17,6 +17,21 @@ const nouns = [
   'a self-taught programmer',
   'a musician',
   'a React developer',
+];
+
+const nouns = [
+  'Staff software engineer',
+  'Typescript developer',
+  'full-stack engineer',
+  'distributed systems engineer',
+  'NodeJS developer',
+  'open-source contributor',
+  'e-commerce enthusiast',
+  'GraphQL developer',
+  'mentor',
+  'self-taught programmer',
+  'musician',
+  'React developer',
 ];
 
 type useIntroProps = {

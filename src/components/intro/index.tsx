@@ -21,7 +21,7 @@ export const Intro = () => {
 
   return (
     <h1 className={styles.heading} style={style}>
-      Hey, I'm <span className={styles.noun}>{current}</span>.
+      Ross Libby <span className={styles.noun}>{current}</span>
     </h1>
   );
 };

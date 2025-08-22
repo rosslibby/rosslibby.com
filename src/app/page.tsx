@@ -21,7 +21,7 @@ export default function Home() {
       ]}>
         <Intro />
       </Target>
-      <Target id="counter" insights={[
+      {/* <Target id="counter" insights={[
         {
           code: 'const [count, setCount] = useState(0);',
           explanation: 'Set a variable to track a count starting from 0',
@@ -44,7 +44,7 @@ export default function Home() {
         { code: ');' },
       ]}>
         <Counter />
-      </Target>
+      </Target> */}
     </main>
   );
 }
