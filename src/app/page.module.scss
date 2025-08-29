@@ -15,7 +15,7 @@
   box-sizing: border-box;
   padding: 1.2rem 1.2rem;
   border-radius: 4px;
-  background: #0f141d;
+  // background: #0f141d;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -39,24 +39,29 @@
     text-decoration: none;
 
     &:hover {
-      color: #a6c7ffbb;
+      color: var(--accent-color);
     }
   }
 }
 
 .npmPackage {
-  background: #ffffff;
-  border-radius: 8px;
-  outline: 10px solid #78a4ff21;
+  border: 2px solid #0f141d;
+  border-radius: 0.625rem;
   padding: 1rem;
 
   h3 {
     color: #0a0b10;
-    font-weight: 900;
+    color: var(--accent-color);
+    font-family: Outfit, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 500;
     letter-spacing: -0.5px;
   }
 
   p {
-    color: black;
+    color: #828b97;
+    color: #596a82;
+    font-size: 14px;
+    font-weight: 300;
   }
 }
