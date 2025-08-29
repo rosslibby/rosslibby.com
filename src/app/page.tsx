@@ -44,7 +44,7 @@ export default function Home() {
           <div className={styles.npmPackage}>
             <h3>Mongo Singleton</h3>
             <div className={styles.about}>
-              <p></p>
+              <p>A lightweight, zero-fuss way to get a single shared MongoDB connection across your Node.js codebase. Like me, it's single and looking for a connection. 💔</p>
               <Link
                 href="https://www.npmjs.com/package/@notross/mongo-singleton"
                 target="_blank"
@@ -55,7 +55,7 @@ export default function Home() {
           <div className={styles.npmPackage}>
             <h3>React Waveform</h3>
             <div className={styles.about}>
-              <p></p>
+              <p>A React component for rendering audio waveforms, with support for multiple audio sources and custom styling.</p>
               <Link
                 href="https://www.npmjs.com/package/@notross/react-waveform"
                 target="_blank"
