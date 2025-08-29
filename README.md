@@ -45,3 +45,10 @@
   }
 }
 ```
+
+### accent colors for light-theme
+```css
+#5482ff
+#4a58ff
+#224aff
+```

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Outfit } from 'next/font/google';
+import { Inter, Inter_Tight, Outfit, Rethink_Sans, Roboto } from 'next/font/google';
 import { ViewfinderProvider } from '@/viewfinder-context';
 import { CursorProvider } from '@/cursor-context';
 import { Cursor, Drawer } from '@/components';
@@ -12,10 +12,16 @@ export const metadata: Metadata = {
 };
 
 const inter = Inter({ subsets: ['latin'] });
+const interTight = Inter_Tight({ subsets: ['latin'] });
 const outfit = Outfit({ subsets: ['latin'] });
+const rethink = Rethink_Sans({ subsets: ['latin'] });
+const roboto = Roboto({ subsets: ['latin'] });
 const classname = [
   inter.className,
+  interTight.className,
   outfit.className,
+  rethink.className,
+  roboto.className,
 ].join(' ');
 
 export default function RootLayout({
@@ -24,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <CursorProvider>
         <body className={classname}>
           <ViewfinderProvider>
