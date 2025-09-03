@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900');
+
+.wrapper {
+  --prev-bg: transparent;
+  background: var(--bg);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  height: 100%;
+  margin: 0 auto;
+  min-height: 28rem;
+  overflow: hidden;
+  place-items: center;
+  position: relative;
+  width: 88%;
+
+  /* code frame */
+  &[data-theme="nuxt"] {
+    --frame: #292d3e;
+    --header: #313546;
+  }
+  &[data-theme="vue"] {
+    --frame: #24292e;
+    --header: #2c3136
+  }
+  &[data-theme="shapes"] {
+    --frame: #282c34;
+    --header: #30343c;
+  }
+
+  .fadebg {
+    animation: switch-bg 1600ms ease-in-out;
+    background: var(--prev-bg);
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.frame {
+  --red: #ff5f57;
+  --yellow: #febc2e;
+  --green: #28c840;
+  background-color: var(--frame);
+  border: 2px solid rgb(51, 65, 85);
+  border-radius: 0.625rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  opacity: 1;
+  overflow: hidden;
+  transform: scale(1) perspective(700px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+
+  height: max-content;
+  width: max-content;
+
+  min-height: 40%;
+  min-width: 65%;
+
+  max-height: 85%;
+  max-width: 85%;
+
+  z-index: 2;
+}
+
+.header {
+  align-items: center;
+  background-color: var(--header);
+  box-sizing: border-box;
+  color: #9ca2ad;
+  display: grid;
+  font-family: Inter, sans-serif;
+  gap: 1rem;
+  grid-template-columns: 3.75rem 1fr 3.75rem;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  width: 100%;
+
+  .title {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .buttons {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+
+    .button {
+      background-color: var(--yellow);
+      border-radius: 50%;
+      height: 13px;
+      width: 13px;
+
+      &:first-child {
+        background-color: var(--red);
+      }
+      &:last-child {
+        background-color: var(--green);
+      }
+    }
+  }
+}
+
+.body {
+  height: 100%;
+  overflow: auto;
+  padding: 23px 0;
+
+  .code {
+    border: 0;
+    line-height: 1.5;
+    padding: 0 23px;
+
+    pre {
+      background: transparent !important;
+      color: #babed8;
+      margin: 0;
+
+      code {
+        background: transparent;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@keyframes switch-bg {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

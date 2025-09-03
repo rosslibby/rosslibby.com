@@ -1,6 +1,6 @@
 'use client'
 
-import { Counter, Intro, Target } from '@/components';
+import { Code, Counter, Intro, Target } from '@/components';
 import styles from './page.module.scss';
 import Link from 'next/link';
 
@@ -43,8 +43,17 @@ export default function Home() {
           <div className={styles.container}>
             <div className={styles.packages}>
               <div className={styles.package}>
-                <h3>Redis Hub</h3>
-                <p>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients (e.g., publisher, subscriber, per-user, per-namespace) with centralized config and event tracking.</p>
+                <div className={styles.content}><h3>Redis Hub</h3></div>
+                <Code code={`// Publisher
+const pub = await redisClient('publisher');
+await pub.publish('my-channel', 'hello world');
+
+// Subscriber
+const sub = await redisClient('subscriber');
+await sub.subscribe('my-channel', (message) => {
+  console.log('Got message:', message);
+});`} />
+                <div className={styles.content}><p>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients (e.g., publisher, subscriber, per-user, per-namespace) with centralized config and event tracking.</p></div>
                 <Link
                   href="https://www.npmjs.com/package/@notross/redis-hub"
                   target="_blank"
@@ -52,9 +61,9 @@ export default function Home() {
                 >@notross/redis-hub</Link>
               </div>
               <div className={styles.package}>
-                <h3>Mongo Singleton</h3>
+                <div className={styles.content}><h3>Mongo Singleton</h3></div>
                 <div className={styles.about}>
-                  <p>A lightweight, zero-fuss way to get a single shared MongoDB connection across your Node.js codebase. Like me, it's single and looking for a connection. 💔</p>
+                  <div className={styles.content}><p>A lightweight, zero-fuss way to get a single shared MongoDB connection across your Node.js codebase. Like me, it's single and looking for a connection. 💔</p></div>
                   <Link
                     href="https://www.npmjs.com/package/@notross/mongo-singleton"
                     target="_blank"
@@ -63,9 +72,9 @@ export default function Home() {
                 </div>
               </div>
               <div className={styles.package}>
-                <h3>React Waveform</h3>
+                <div className={styles.content}><h3>React Waveform</h3></div>
                 <div className={styles.about}>
-                  <p>A React component for rendering audio waveforms, with support for multiple audio sources and custom styling.</p>
+                  <div className={styles.content}><p>A React component for rendering audio waveforms, with support for multiple audio sources and custom styling.</p></div>
                   <Link
                     href="https://www.npmjs.com/package/@notross/react-waveform"
                     target="_blank"
