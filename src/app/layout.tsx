@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Inter_Tight, Outfit, Rethink_Sans, Roboto } from 'next/font/google';
+import { Inter, Inter_Tight, Mona_Sans, Outfit, Rethink_Sans, Roboto } from 'next/font/google';
 import { ViewfinderProvider } from '@/viewfinder-context';
 import { CursorProvider } from '@/cursor-context';
 import { Cursor, Drawer } from '@/components';
@@ -16,12 +16,14 @@ const interTight = Inter_Tight({ subsets: ['latin'] });
 const outfit = Outfit({ subsets: ['latin'] });
 const rethink = Rethink_Sans({ subsets: ['latin'] });
 const roboto = Roboto({ subsets: ['latin'] });
+const mona = Mona_Sans({ subsets: ['latin'] });
 const classname = [
   inter.className,
   interTight.className,
   outfit.className,
   rethink.className,
   roboto.className,
+  mona.className,
 ].join(' ');
 
 export default function RootLayout({

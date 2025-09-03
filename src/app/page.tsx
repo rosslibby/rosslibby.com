@@ -27,40 +27,52 @@ export default function Home() {
         flexDirection: 'column',
         gap: '0.5rem',
       }}>
-        <span>NPM packages:</span>
-        <div style={{
+        <div className={styles.container} style={{
           display: 'flex',
-          gap: '0.5rem',
+          flexDirection: 'column',
+          gap: '0.75rem',
         }}>
-          <div className={styles.npmPackage}>
-            <h3>Redis Hub</h3>
-            <p>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients (e.g., publisher, subscriber, per-user, per-namespace) with centralized config and event tracking.</p>
-            <Link
-              href="https://www.npmjs.com/package/@notross/redis-hub"
-              target="_blank"
-              rel="noopener noreferrer"
-            >@notross/redis-hub</Link>
-          </div>
-          <div className={styles.npmPackage}>
-            <h3>Mongo Singleton</h3>
-            <div className={styles.about}>
-              <p>A lightweight, zero-fuss way to get a single shared MongoDB connection across your Node.js codebase. Like me, it's single and looking for a connection. 💔</p>
-              <Link
-                href="https://www.npmjs.com/package/@notross/mongo-singleton"
-                target="_blank"
-                rel="noopener noreferrer"
-              >@notross/mongo-singleton</Link>
-            </div>
-          </div>
-          <div className={styles.npmPackage}>
-            <h3>React Waveform</h3>
-            <div className={styles.about}>
-              <p>A React component for rendering audio waveforms, with support for multiple audio sources and custom styling.</p>
-              <Link
-                href="https://www.npmjs.com/package/@notross/react-waveform"
-                target="_blank"
-                rel="noopener noreferrer"
-              >@notross/react-waveform</Link>
+          <h2>Open-source projects</h2>
+          <p style={{
+            textAlign: 'center',
+            maxWidth: '50ch',
+          }}>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients</p>
+        </div>
+
+        <div className={styles.section}>
+          <div className={styles.container}>
+            <div className={styles.packages}>
+              <div className={styles.package}>
+                <h3>Redis Hub</h3>
+                <p>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients (e.g., publisher, subscriber, per-user, per-namespace) with centralized config and event tracking.</p>
+                <Link
+                  href="https://www.npmjs.com/package/@notross/redis-hub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >@notross/redis-hub</Link>
+              </div>
+              <div className={styles.package}>
+                <h3>Mongo Singleton</h3>
+                <div className={styles.about}>
+                  <p>A lightweight, zero-fuss way to get a single shared MongoDB connection across your Node.js codebase. Like me, it's single and looking for a connection. 💔</p>
+                  <Link
+                    href="https://www.npmjs.com/package/@notross/mongo-singleton"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >@notross/mongo-singleton</Link>
+                </div>
+              </div>
+              <div className={styles.package}>
+                <h3>React Waveform</h3>
+                <div className={styles.about}>
+                  <p>A React component for rendering audio waveforms, with support for multiple audio sources and custom styling.</p>
+                  <Link
+                    href="https://www.npmjs.com/package/@notross/react-waveform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >@notross/react-waveform</Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

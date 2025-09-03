@@ -4,7 +4,10 @@
   --background: #ffffff;
   --foreground: #171717;
   --bg-main: #0a0b10;
-  --accent-color: #4482ff;
+  --accent-color: #668dff;
+  --font-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  /* --col: #0d1116;
+  --col2: #21262d; */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,8 +30,11 @@
 
 [data-theme="dark"]:root {
   --background: #0a0a0a;
+  --background: #0d1116;
   --foreground: #ededed;
   --bg-main: #0a0b10;
+  --bg-main: #0d1116;
+  --border-color: #21262d;
   --text-primary: #ffffff;
 }
 [data-theme="light"]:root {
@@ -82,4 +88,25 @@ body {
   display: grid;
   overflow: hidden;
   place-items: center;
+}
+
+h1, h2, h3, p, a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  text-align: center;
+
+  &+ p {
+    color: rgb(255 255 255 / .85);
+    font-size: 1.5rem;
+    font-weight: 450;
+    line-height: 140%;
+  }
 }
