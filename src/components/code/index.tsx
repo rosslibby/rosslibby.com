@@ -16,8 +16,9 @@ const bgs = [
   'linear-gradient(45deg, rgb(68, 202, 255) 0%, rgb(223, 50, 198) 50%, rgb(255, 102, 63) 100%)',
 ];
 
-export const Code = ({ code, language, setting }: {
+export const Code = ({ code, featured, language, setting }: {
   code: string;
+  featured?: boolean;
   language?: string;
   setting?: number;
 }) => {
@@ -26,6 +27,11 @@ export const Code = ({ code, language, setting }: {
   const [background, setBackground] = useState(setting ?? 8);
   const [prevbg, setPrevbg] = useState(background);
   const bg = bgs[background];
+
+  const classname = [
+    styles.wrapper,
+    ...(featured ? [styles.featured] : []),
+  ].join(' ');
 
   const highlight = useCallback(async () => {
     const highlighted = await codeToHtml(code, {
@@ -85,7 +91,7 @@ export const Code = ({ code, language, setting }: {
   }, [highlighted]);
 
   return (
-    <div className={styles.wrapper} data-theme="nuxt"
+    <div className={classname} data-theme="nuxt"
       style={{
         '--bg': bg,
         '--prev-bg': bgs[prevbg],

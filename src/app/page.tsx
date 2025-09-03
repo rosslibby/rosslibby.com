@@ -1,27 +1,52 @@
 'use client'
 
-import { Code, Counter, Intro, Target } from '@/components';
+import { Code, Feature, Intro, Target } from '@/components';
 import styles from './page.module.scss';
 import Link from 'next/link';
+
+const lines = [
+  `// Publisher\nconst pub = await redisClient('publisher');`,
+  `await pub.publish('my-channel', 'hello world');`,
+  '',
+  `// Subscriber`,
+  `const sub = await redisClient('subscriber');`,
+  `await sub.subscribe('my-channel', (message) => {`,
+  `  console.log('Got message:', message);`,
+  `});`,
+];
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Target id="intro" insights={[
-        {
-          code: 'const { noun } = useIntro();',
-          explanation: 'Get the "noun" variable from the useIntro() hook',
-        },
-        { code: '' },
-        { code: 'return (' },
-        {
-          code: '  <h1>Hey, I\'m <span>{noun}</span>.</h1>',
-          explanation: 'Display a heading that introduces me as the noun we got from the useIntro() hook',
-        },
-        { code: ');' },
-      ]}>
-        <Intro />
-      </Target>
+      <div className={styles.header}>
+        <Target id="intro" insights={[
+          {
+            code: 'const { noun } = useIntro();',
+            explanation: 'Get the "noun" variable from the useIntro() hook',
+          },
+          { code: '' },
+          { code: 'return (' },
+          {
+            code: '  <h1>Hey, I\'m <span>{noun}</span>.</h1>',
+            explanation: 'Display a heading that introduces me as the noun we got from the useIntro() hook',
+          },
+          { code: ');' },
+        ]}>
+          <Intro />
+        </Target>
+      </div>
+      <div className={styles.section} style={{
+        background: 'linear-gradient(to bottom, #886cff, #31386a 117%)',
+      }}>
+        <div className={styles.container} style={{
+          marginTop: '4rem',
+          maxWidth: '44rem',
+        }}>
+          <Feature>
+            <Code code={lines.join('\n')} featured={true} />
+          </Feature>
+        </div>
+      </div>
       <div style={{
         display: 'flex',
         flexDirection: 'column',
