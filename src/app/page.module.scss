@@ -93,7 +93,7 @@
 .packages {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-columns: 7fr 6fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   width: 100%;
 
@@ -104,7 +104,6 @@
     display: flex;
     flex-direction: column;
     font-family: "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    gap: 0.25rem;
     justify-content: space-between;
     padding: 0;
     min-height: 28.75rem;

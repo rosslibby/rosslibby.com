@@ -4,7 +4,7 @@ import { Code, Feature, Intro, Target } from '@/components';
 import styles from './page.module.scss';
 import Link from 'next/link';
 
-const lines = [
+const redisHub = [
   `// Publisher\nconst pub = await redisClient('publisher');`,
   `await pub.publish('my-channel', 'hello world');`,
   '',
@@ -13,6 +13,12 @@ const lines = [
   `await sub.subscribe('my-channel', (message) => {`,
   `  console.log('Got message:', message);`,
   `});`,
+];
+const mongoSingleton = [
+  `import { collection } from '@notross/mongo-singleton';`,
+  '',
+  `const getAccountById = async (id) => collection('accounts')`,
+  `  .then((accounts) => accounts.findOne({ _id: id }));`,
 ];
 
 export default function Home() {
@@ -43,7 +49,7 @@ export default function Home() {
           maxWidth: '44rem',
         }}>
           <Feature>
-            <Code code={lines.join('\n')} featured={true} />
+            <Code code={redisHub.join('\n')} featured={true} />
           </Feature>
         </div>
       </div>
@@ -56,6 +62,7 @@ export default function Home() {
           display: 'flex',
           flexDirection: 'column',
           gap: '0.75rem',
+          margin: '2rem auto 4rem',
         }}>
           <h2>Open-source projects</h2>
           <p style={{
@@ -69,15 +76,7 @@ export default function Home() {
             <div className={styles.packages}>
               <div className={styles.package}>
                 <div className={styles.content}><h3>Redis Hub</h3></div>
-                <Code code={`// Publisher
-const pub = await redisClient('publisher');
-await pub.publish('my-channel', 'hello world');
-
-// Subscriber
-const sub = await redisClient('subscriber');
-await sub.subscribe('my-channel', (message) => {
-  console.log('Got message:', message);
-});`} />
+                <Code code={redisHub.join('\n')} />
                 <div className={styles.content}><p>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients (e.g., publisher, subscriber, per-user, per-namespace) with centralized config and event tracking.</p></div>
                 <Link
                   href="https://www.npmjs.com/package/@notross/redis-hub"
@@ -87,6 +86,7 @@ await sub.subscribe('my-channel', (message) => {
               </div>
               <div className={styles.package}>
                 <div className={styles.content}><h3>Mongo Singleton</h3></div>
+                <Code code={mongoSingleton.join('\n')} />
                 <div className={styles.about}>
                   <div className={styles.content}><p>A lightweight, zero-fuss way to get a single shared MongoDB connection across your Node.js codebase. Like me, it's single and looking for a connection. 💔</p></div>
                   <Link
