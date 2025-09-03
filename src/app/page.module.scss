@@ -6,6 +6,7 @@
   gap: 2rem;
   flex-direction: column;
   height: 100%;
+  overflow: auto;
   // justify-content: center;
   // padding: 2.5rem;
   width: 100%;
@@ -80,7 +81,7 @@
 .packages {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 7fr 6fr;
   grid-template-rows: 1fr;
   width: 100%;
 
