@@ -20,6 +20,11 @@ const mongoSingleton = [
   `const getAccountById = async (id) => collection('accounts')`,
   `  .then((accounts) => accounts.findOne({ _id: id }));`,
 ];
+const reactWaveform = [
+  `import { Waveform } from '@notross/react-waveform'`,
+  '',
+  `const AudioPlayer = ({ track }) => <Waveform track={track} />;`,
+];
 
 export default function Home() {
   return (
@@ -98,6 +103,7 @@ export default function Home() {
               </div>
               <div className={styles.package}>
                 <div className={styles.content}><h3>React Waveform</h3></div>
+                <Code code={reactWaveform.join('\n')} />
                 <div className={styles.about}>
                   <div className={styles.content}><p>A React component for rendering audio waveforms, with support for multiple audio sources and custom styling.</p></div>
                   <Link
