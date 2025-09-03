@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { codeToHtml } from 'shiki';
 import styles from './code.module.scss';
+import { useCode } from './hooks';
 
 const bgs = [
   'linear-gradient(45deg, rgb(65, 89, 208) 0%, rgb(200, 79, 192) 50%, rgb(255, 205, 112) 100%)',
@@ -23,23 +24,15 @@ export const Code = ({ code, featured, language, setting }: {
   setting?: number;
 }) => {
   const codeRef = useRef<HTMLDivElement>(null);
-  const [highlighted, setHighlighted] = useState('');
   const [background, setBackground] = useState(setting ?? 8);
   const [prevbg, setPrevbg] = useState(background);
   const bg = bgs[background];
+  useCode({ ref: codeRef, input: code });
 
   const classname = [
     styles.wrapper,
     ...(featured ? [styles.featured] : []),
   ].join(' ');
-
-  const highlight = useCallback(async () => {
-    const highlighted = await codeToHtml(code, {
-      lang: language ?? 'typescript',
-      theme: 'github-dark',
-    });
-    setHighlighted(highlighted);
-  }, [code, language, setHighlighted]);
 
   const changeSetting = useCallback((setting?: number) => {
     if (setting) {
@@ -76,19 +69,6 @@ export const Code = ({ code, featured, language, setting }: {
       }
     }
   }, [codeRef, changeSetting]);
-
-  const renderCode = useCallback(() => {
-    if (!codeRef.current) return;
-    codeRef.current.innerHTML = highlighted;
-  }, [codeRef, highlighted]);
-
-  useEffect(() => {
-    highlight();
-  });
-
-  useEffect(() => {
-    renderCode();
-  }, [highlighted]);
 
   return (
     <div className={classname} data-theme="nuxt"
