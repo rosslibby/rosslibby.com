@@ -21,6 +21,13 @@
     --frame: #292d3e;
     --header: #313546;
   }
+  &[data-theme="nuxt-contrast"] {
+    --frame: #25293b;
+    --header: #2d3143;
+
+    --frame: #222534;
+    --header: #7e95c021;
+  }
   &[data-theme="vue"] {
     --frame: #24292e;
     --header: #2c3136

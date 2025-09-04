@@ -19,7 +19,7 @@ export const Code = ({ code, featured, language, setting }: {
   ].join(' ');
 
   return (
-    <div className={classname} data-theme="nuxt" style={style}>
+    <div className={classname} data-theme="nuxt-contrast" style={style}>
       {changing && <div className={styles.fadebg} />}
       <div className={styles.frame}>
         <div className={styles.header}>
