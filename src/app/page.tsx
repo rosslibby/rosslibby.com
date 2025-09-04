@@ -1,8 +1,8 @@
 'use client'
 
-import { Code, Feature, Intro, Target } from '@/components';
-import styles from './page.module.scss';
 import Link from 'next/link';
+import { Block, Blocks, BlockTitle, Code, Intro, Target } from '@/components';
+import styles from './page.module.scss';
 
 const redisHub = [
   `// Publisher\nconst pub = await redisClient('publisher');`,
@@ -46,104 +46,78 @@ export default function Home() {
           <Intro />
         </Target>
       </div>
-      <div className={styles.section} style={{
-        background: 'linear-gradient(to bottom, #886cff, #31386a 117%)',
-      }}>
-        <div className={styles.container} style={{
-          marginTop: '4rem',
-          maxWidth: '44rem',
-        }}>
-          <Feature>
-            <Code code={redisHub.join('\n')} featured={true} />
-          </Feature>
-        </div>
-      </div>
+      <hr />
+      <Blocks>
+        <BlockTitle
+          title="Open-source projects"
+          subtitle="A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients"
+        />
+      </Blocks>
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '0.5rem',
       }}>
-        <div className={styles.container} style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '0.75rem',
-          margin: '2rem auto 4rem',
-        }}>
-          <h2>Open-source projects</h2>
-          <p style={{
-            textAlign: 'center',
-            maxWidth: '50ch',
-          }}>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients</p>
-        </div>
-
-        <div className={styles.section}>
-          <div className={styles.container}>
-            <div className={styles.packages}>
-              <div className={styles.package}>
-                <div className={styles.content}><h3>Redis Hub</h3></div>
-                <Code code={redisHub.join('\n')} />
-                <div className={styles.content}><p>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients (e.g., publisher, subscriber, per-user, per-namespace) with centralized config and event tracking.</p></div>
-                <Link
-                  href="https://www.npmjs.com/package/@notross/redis-hub"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >@notross/redis-hub</Link>
-              </div>
-              <div className={styles.package}>
-                <div className={styles.content}><h3>Mongo Singleton</h3></div>
-                <Code code={mongoSingleton.join('\n')} background={4} />
-                <div className={styles.about}>
-                  <div className={styles.content}><p>A lightweight, zero-fuss way to get a single shared MongoDB connection across your Node.js codebase. Like me, it's single and looking for a connection. 💔</p></div>
-                  <Link
-                    href="https://www.npmjs.com/package/@notross/mongo-singleton"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >@notross/mongo-singleton</Link>
-                </div>
-              </div>
-              <div className={styles.package}>
-                <div className={styles.content}><h3>React Waveform</h3></div>
-                <Code
-                  code={reactWaveform.join('\n')}
-                  background={1}
-                />
-                <div className={styles.about}>
-                  <div className={styles.content}><p>A React component for rendering audio waveforms, with support for multiple audio sources and custom styling.</p></div>
-                  <Link
-                    href="https://www.npmjs.com/package/@notross/react-waveform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >@notross/react-waveform</Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <hr />
+        <Blocks>
+          <Block>
+            <h3>Redis Hub</h3>
+          </Block>
+        </Blocks>
+        <hr />
+        <Blocks columns="6fr 6fr">
+          <Block>
+            <p>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients (e.g., publisher, subscriber, per-user, per-namespace) with centralized config and event tracking.</p>
+            <Link
+              href="https://www.npmjs.com/package/@notross/redis-hub"
+              target="_blank"
+              rel="noopener noreferrer"
+            >@notross/redis-hub</Link>
+          </Block>
+          <Block>
+            <Code code={redisHub.join('\n')} />
+          </Block>
+        </Blocks>
+        <hr />
+        <Blocks>
+          <Block>
+            <h3>Mongo Singleton</h3>
+          </Block>
+        </Blocks>
+        <hr />
+        <Blocks columns="6fr 6fr">
+          <Block>
+            <Code code={mongoSingleton.join('\n')} />
+          </Block>
+          <Block>
+            <p>A lightweight, zero-fuss way to get a single shared MongoDB connection across your Node.js codebase. Like me, it's single and looking for a connection. 💔</p>
+            <Link
+              href="https://www.npmjs.com/package/@notross/mongo-singleton"
+              target="_blank"
+              rel="noopener noreferrer"
+            >@notross/mongo-singleton</Link>
+          </Block>
+        </Blocks>
+        <hr />
+        <Blocks>
+          <Block>
+            <h3>React Waveform</h3>
+          </Block>
+        </Blocks>
+        <hr />
+        <Blocks columns="6fr 6fr">
+          <Block>
+            <p>A React component for rendering audio waveforms, with support for multiple audio sources and custom styling.</p>
+            <Link
+              href="https://www.npmjs.com/package/@notross/react-waveform"
+              target="_blank"
+              rel="noopener noreferrer"
+            >@notross/react-waveform</Link>
+          </Block>
+          <Block>
+            <Code code={reactWaveform.join('\n')} />
+          </Block>
+        </Blocks>
       </div>
-      {/* <Target id="counter" insights={[
-        {
-          code: 'const [count, setCount] = useState(0);',
-          explanation: 'Set a variable to track a count starting from 0',
-        },
-        {
-          code: 'const label = `Click counter (${count})`;',
-          explanation: 'Set the button\'s text to display its title and the current count',
-        },
-        { code: '' },
-        {
-          code: 'const handleClick = () => setCount((count) => count + 1);',
-          explanation: 'Build a function that will increment the counter',
-        },
-        { code: '' },
-        { code: 'return (' },
-        {
-          code: '  <button onClick={handleClick}>{label}</button>',
-          explanation: 'Display a button that shows the button\'s label and increments the count when clicked',
-        },
-        { code: ');' },
-      ]}>
-        <Counter />
-      </Target> */}
     </main>
   );
 }
