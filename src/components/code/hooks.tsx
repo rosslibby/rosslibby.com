@@ -66,6 +66,14 @@ export const useBackgrounds = (initialGradient: number = 8) => {
   }, [gradient, setGradient, setPrevious]);
 
   useEffect(() => {
+    const interval = setInterval(change, 8000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [change]);
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'b') {
         change();

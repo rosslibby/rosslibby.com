@@ -32,6 +32,7 @@
 
   .fadebg {
     animation: switch-bg 1600ms ease-in-out;
+    animation: switch-bg 1600ms linear;
     background: var(--prev-bg);
     height: 100%;
     left: 0;
