@@ -91,7 +91,7 @@ export default function Home() {
               </div>
               <div className={styles.package}>
                 <div className={styles.content}><h3>Mongo Singleton</h3></div>
-                <Code code={mongoSingleton.join('\n')} />
+                <Code code={mongoSingleton.join('\n')} background={4} />
                 <div className={styles.about}>
                   <div className={styles.content}><p>A lightweight, zero-fuss way to get a single shared MongoDB connection across your Node.js codebase. Like me, it's single and looking for a connection. 💔</p></div>
                   <Link
@@ -103,7 +103,10 @@ export default function Home() {
               </div>
               <div className={styles.package}>
                 <div className={styles.content}><h3>React Waveform</h3></div>
-                <Code code={reactWaveform.join('\n')} />
+                <Code
+                  code={reactWaveform.join('\n')}
+                  background={1}
+                />
                 <div className={styles.about}>
                   <div className={styles.content}><p>A React component for rendering audio waveforms, with support for multiple audio sources and custom styling.</p></div>
                   <Link
