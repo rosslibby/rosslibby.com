@@ -66,6 +66,20 @@ export const useBackgrounds = (initialGradient: number = 8) => {
   }, [gradient, setGradient, setPrevious]);
 
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'b') {
+        change();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [change]);
+
+  useEffect(() => {
     setTimeout(() => setPrevious(gradient), 1600);
   }, [gradient, previous]);
 

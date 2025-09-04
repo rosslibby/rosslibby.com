@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { codeToHtml } from 'shiki';
 import styles from './code.module.scss';
-import { useCode } from './hooks';
+import { useBackgrounds, useCode } from './hooks';
 
 const bgs = [
   'linear-gradient(45deg, rgb(65, 89, 208) 0%, rgb(200, 79, 192) 50%, rgb(255, 205, 112) 100%)',
@@ -24,60 +24,17 @@ export const Code = ({ code, featured, language, setting }: {
   setting?: number;
 }) => {
   const codeRef = useRef<HTMLDivElement>(null);
-  const [background, setBackground] = useState(setting ?? 8);
-  const [prevbg, setPrevbg] = useState(background);
-  const bg = bgs[background];
   useCode({ ref: codeRef, input: code });
+  const { changing, style } = useBackgrounds();
 
   const classname = [
     styles.wrapper,
     ...(featured ? [styles.featured] : []),
   ].join(' ');
 
-  const changeSetting = useCallback((setting?: number) => {
-    if (setting) {
-      setBackground(setting);
-    } else {
-      const settings = Array.from({ length: 10 }, (_,i) => i).filter((n) => n !== background);
-      const selection = Math.floor(Math.random() * settings.length);
-      setPrevbg(background);
-      setBackground(settings[selection]);
-    }
-  }, [background, setPrevbg, setBackground]);
-
-  useEffect(() => {
-    setTimeout(() => setPrevbg(background), 1600);
-  }, [background, prevbg]);
-
-  useEffect(() => {
-    let current = codeRef.current || null;
-
-    const handleKeys = (e: KeyboardEvent) => {
-      if (e.key === 'b') {
-        changeSetting();
-      }
-    };
-
-    if (current) {
-      document.addEventListener('keydown', handleKeys);
-    }
-
-    return () => {
-      if (current) {
-        document.removeEventListener('keydown', handleKeys);
-        current = null;
-      }
-    }
-  }, [codeRef, changeSetting]);
-
   return (
-    <div className={classname} data-theme="nuxt"
-      style={{
-        '--bg': bg,
-        '--prev-bg': bgs[prevbg],
-      } as React.CSSProperties}
-    >
-      {background !== prevbg && <div className={styles.fadebg} />}
+    <div className={classname} data-theme="nuxt" style={style}>
+      {changing && <div className={styles.fadebg} />}
       <div className={styles.frame}>
         <div className={styles.header}>
           <div className={styles.buttons}>
