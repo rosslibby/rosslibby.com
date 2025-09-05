@@ -4,7 +4,7 @@ import { Doc } from '@/types';
 import { cursorCtx } from '@/cursor-context';
 import { docsCtx } from '@/docs-context';
 
-export const useDoc = () => {
+export const useDoc = (ref: React.RefObject<HTMLDivElement | null>) => {
   const { targeting } = useContext(cursorCtx);
   const { docs, loading, _: { setDocs, setLoading } } = useContext(docsCtx);
   const [markdown, setMarkdown] = useState('');
@@ -18,7 +18,7 @@ export const useDoc = () => {
 
   useEffect(() => {
     selectDoc();
-  }, [targeting, selectDoc]);
+  }, [targeting]);
 
   const updateDoc = useCallback((id: string, changes: Partial<Doc>) => {
     setDocs((prev: Record<string, Doc>) => ({
@@ -34,11 +34,31 @@ export const useDoc = () => {
     const markdown = await fetch(current.url)
       .then((res) => res.text())
       .finally(() => setLoading(false));
+    const html = await fetch(`https://api.github.com/markdown`, {
+      method: 'POST',
+      headers: {
+        Accept: 'text/html',
+        'Content-Type': 'application/json',
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+      body: JSON.stringify({text:markdown}),
+    }).then((res) => res.text());
+    console.log('html:', html);
 
-    updateDoc(current.id, { data: markdown });
-    setMarkdown(markdown);
+    updateDoc(current.id, { data: html });
+    setMarkdown(html);
     selectDoc();
   }, [current, loading, selectDoc, setLoading, setMarkdown, updateDoc]);
+
+  const render = useCallback(() => {
+    if (ref.current) {
+      ref.current.innerHTML = markdown;
+    }
+  }, [ref, markdown]);
+
+  useEffect(() => {
+    render();
+  }, [markdown]);
 
   useEffect(() => {
     if (!current?.data) {

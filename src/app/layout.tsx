@@ -6,6 +6,7 @@ import { DrawerProvider } from '@/drawer-context';
 import { ViewfinderProvider } from '@/viewfinder-context';
 import { fontsClassname } from './fonts';
 import './globals.css';
+import '../components/docs/markdown.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
