@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import { TargetInsight } from './target';
 
+export * from './docs';
 export * from './drawer';
 export * from './target';
 
