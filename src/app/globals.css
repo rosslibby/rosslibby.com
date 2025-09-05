@@ -1,28 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --bg-main: #0a0b10;
+  --accent-color: #668dff;
+  --font-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  /* --col: #0d1116;
+  --col2: #21262d; */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --bg-main: #0a0b10;
+    --text-primary: #ffffff;
   }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --bg-main: #ffffff;
+    --text-primary: #0a0b10;
+  }
+}
+
+[data-theme="dark"]:root {
+  --background: #0a0a0a;
+  --background: #0d1116;
+  --foreground: #ededed;
+  --bg-main: #0a0b10;
+  --bg-main: #0d1116;
+  --border-color: #21262d;
+  --text-primary: #ffffff;
+}
+[data-theme="light"]:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --bg-main: #ffffff;
+  --text-primary: #0a0b10;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background-color: var(--bg-main);
   display: grid;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   height: 100vh;
   margin: 0;
   overflow: hidden;
@@ -49,7 +83,7 @@ a {
 
 body {
   background-color: #1e1e1e;
-  font-family: Inter, sans-serif;
+  font-family: Outfit, sans-serif;
   height: 100vh;
   margin: 0;
   width: 100vw;
@@ -57,4 +91,30 @@ body {
   display: grid;
   overflow: hidden;
   place-items: center;
+}
+
+h1, h2, h3, p, a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  text-align: center;
+
+  &+ p {
+    color: rgb(255 255 255 / .85);
+    font-size: 1.5rem;
+    font-weight: 450;
+    line-height: 140%;
+  }
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
 }

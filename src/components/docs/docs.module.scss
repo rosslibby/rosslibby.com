@@ -1,0 +1,43 @@
+// background-color: #15171c; border: #2b3039; color: #c9ced8; span:color: #8c99ad; a:color: #5469d4; fill: #768193; 
+
+/**
+ * drawer bgs (worst to best):
+ * - #171d26
+ * - #131821
+ * - #161b24
+ * - #151b24
+
+
+
+ #14181e,#141923
+ */
+
+.wrapper {
+  --background-primary: #15171c;
+  --background-secondary: #1c1e25;
+  --border-color: #2b3039;
+  --color-primary: #c9ced8;
+  --color-secondary: #8c99ad;
+  --accent-primary: #5469d4;
+  --accent-secondary: #1c1d34;
+  --fill: #768193;
+
+  background-color: #15171c;
+  border: 1px solid #2b3039;
+  color: #c9ced8;
+}
+
+.drawer {
+  box-shadow:
+    0 0 0 0 transparent,
+    transparent 0 0 0 1px,
+    0 0 0 0 transparent,
+    0 5px 15px 0 #0000001f,
+    0 15px 35px 0 #0e0e1166;
+
+
+  background: #0f151ce6;
+  border-left: 1px solid #2b3038;
+  backdrop-filter: blur(29px);
+  border-color: var(--border-color);
+}
