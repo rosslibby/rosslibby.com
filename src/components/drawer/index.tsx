@@ -2,6 +2,7 @@
 
 import { useContext, useRef } from 'react';
 import { cursorCtx } from '@/cursor-context';
+import { Docs } from '@/components';
 import { Code } from './code';
 import { Component } from './component';
 import { useDrawer } from './hooks';
@@ -20,6 +21,7 @@ export const Drawer = () => {
 
   return (
     <div {...attributes}>
+      <Docs />
       <Component />
       <Code />
     </div>
