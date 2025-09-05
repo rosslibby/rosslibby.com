@@ -2,6 +2,7 @@ export * from './code';
 export * from './content-blocks';
 export * from './counter';
 export * from './cursor';
+export * from './docs';
 export * from './drawer';
 export * from './feature';
 export * from './intro';
