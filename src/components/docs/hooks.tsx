@@ -43,7 +43,6 @@ export const useDoc = (ref: React.RefObject<HTMLDivElement | null>) => {
       },
       body: JSON.stringify({text:markdown}),
     }).then((res) => res.text());
-    console.log('html:', html);
 
     updateDoc(current.id, { data: html });
     setMarkdown(html);

@@ -82,7 +82,7 @@ export default function Home() {
               rel="noopener noreferrer"
             >@notross/redis-hub</Link>
           </Block>
-          <Block>
+          <Block style={{ padding: 0 }}>
             <Code code={redisHub.join('\n')} />
           </Block>
         </Blocks>
@@ -100,7 +100,7 @@ export default function Home() {
         </Blocks>
         <hr />
         <Blocks columns="6fr 6fr">
-          <Block>
+          <Block style={{ padding: 0 }}>
             <Code code={mongoSingleton.join('\n')} />
           </Block>
           <Block>
@@ -134,7 +134,7 @@ export default function Home() {
               rel="noopener noreferrer"
             >@notross/react-waveform</Link>
           </Block>
-          <Block>
+          <Block style={{ padding: 0 }}>
             <Code code={reactWaveform.join('\n')} />
           </Block>
         </Blocks>

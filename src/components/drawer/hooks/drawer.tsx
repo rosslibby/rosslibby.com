@@ -13,7 +13,6 @@ export const useDrawer = (
     const target = e.target as HTMLElement;
 
     if (!current || targeting === null) return;
-    else console.log('click detected:', current, target, current.contains(target))
 
     if (!current.contains(target)) {
       setTargeting(null);
