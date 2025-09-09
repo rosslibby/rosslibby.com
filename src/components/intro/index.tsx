@@ -21,7 +21,11 @@ export const Intro = () => {
 
   return (
     <h1 className={styles.heading} style={style}>
-      Ross Libby <span className={styles.noun}>{current}</span>
+      <span className={styles.name}>
+        <span className={styles.givenName}>Ross</span>
+        <span className={styles.familyName}>Libby</span>
+      </span>
+      <span className={styles.noun}>{current}</span>
     </h1>
   );
 };
