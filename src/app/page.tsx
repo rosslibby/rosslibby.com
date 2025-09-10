@@ -73,7 +73,7 @@ export default function Home() {
           </Block>
         </Blocks>
         <hr />
-        <Blocks columns="6fr 6fr">
+        <Blocks columns="6fr 6fr" reverse>
           <Block>
             <p>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients (e.g., publisher, subscriber, per-user, per-namespace) with centralized config and event tracking.</p>
             <Link
@@ -125,7 +125,7 @@ export default function Home() {
           </Block>
         </Blocks>
         <hr />
-        <Blocks columns="6fr 6fr">
+        <Blocks columns="6fr 6fr" reverse>
           <Block>
             <p>A React component for rendering audio waveforms, with support for multiple audio sources and custom styling.</p>
             <Link

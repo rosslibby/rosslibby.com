@@ -6,6 +6,7 @@
   --bg-main: #0a0b10;
   --accent-color: #668dff;
   --font-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  --content-width: 80rem;
   /* --col: #0d1116;
   --col2: #21262d; */
 }

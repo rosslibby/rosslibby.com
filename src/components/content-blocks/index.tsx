@@ -29,16 +29,21 @@ export const Block = ({ children, className, style }: {
   );
 };
 
-export const Blocks = ({ children, columns }: {
+export const Blocks = ({ children, columns, reverse }: {
   children: React.ReactNode;
   columns?: string;
+  reverse?: boolean;
 }) => {
+  const classname = [
+    styles.row,
+    ...(reverse ? [styles.reverse] : []),
+  ].join(' ');
   const style = {
-    gridTemplateColumns: columns,
+    '--columns': columns,
   } as React.CSSProperties;
 
   return (
-    <div className={styles.blocks} style={style}>
+    <div className={classname} style={style}>
       {children}
     </div>
   );
