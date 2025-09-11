@@ -17,6 +17,33 @@ export const Feature = ({ children }: {
   );
 };
 
+const openSource = [
+  '/**',
+  ' * Redis Hub',
+  ' * https://npmjs.com/package/@notross/redis-hub',
+  ' */',
+  `import { redisClient } from '@notross/redis-hub';`,
+  `const publisher = await redisClient('publisher');`,
+  `await publisher.publish('messages', 'Hello, World!');`,
+  '',
+  '/**',
+  ' * Mongo Singleton',
+  ' * https://npmjs.com/package/@notross/mongo-singleton',
+  ' */',
+  `import { collection } from '@notross/mongo-singleton'`,
+  `const users = await collection('users')`,
+  `await users.findOne({ email: 'john.doe@gmail.com' })`,
+  '',
+  '/**',
+  ' * Mongo Singleton',
+  ' * https://npmjs.com/package/@notross/mongo-singleton',
+  ' */',
+  `import { Waveform } from '@notross/react-waveform';`,
+  `const AudioPlayer = ({ song }) => <Waveform track={song} />`,
+  '',
+  '',
+];
+
 export const FeatureDemo = () => {
   const redisHub = [
     `// Publisher\nconst pub = await redisClient('publisher');`,
@@ -40,7 +67,7 @@ export const FeatureDemo = () => {
         maxWidth: '80rem',
       }}>
         <Feature>
-          <Code code={redisHub.join('\n')} featured={true} />
+          <Code code={openSource.join('\n')} featured={true} title="npm-packages.js" />
         </Feature>
       </div>
     </div>

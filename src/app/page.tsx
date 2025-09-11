@@ -54,7 +54,13 @@ export default function Home() {
           subtitle="From vision to production, I build software that lasts. I thrive on creating scalable systems and impactful user experiences that stand the test of time."
         />
       </Blocks>
-      <FeatureDemo />
+      <div><FeatureDemo /></div>
+      <Blocks>
+        <BlockTitle
+          title="Open source contributions"
+          subtitle="Selected npm packages I've published and maintain"
+        />
+      </Blocks>
       <div style={{
         display: 'flex',
         flexDirection: 'column',
