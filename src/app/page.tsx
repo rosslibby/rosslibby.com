@@ -80,7 +80,8 @@ export default function Home() {
         <hr />
         <Blocks columns="6fr 6fr" reverse>
           <Block>
-            <p>A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients (e.g., publisher, subscriber, per-user, per-namespace) with centralized config and event tracking.</p>
+            <h5>A minimal connection hub for Redis in Node.js, reusing named clients with centralized config and event tracking.</h5>
+            <em>Started as a Mongo-style singleton, then expanded to handle pub/sub without repeating publisher, subscriber, and client logic.</em>
             <Link
               href="https://www.npmjs.com/package/@notross/redis-hub"
               target="_blank"
@@ -109,7 +110,8 @@ export default function Home() {
             <Code code={mongoSingleton.join('\n')} />
           </Block>
           <Block>
-            <p>A lightweight, zero-fuss way to get a single shared MongoDB connection across your Node.js codebase. Like me, it's single and looking for a connection. 💔</p>
+            <h5>A zero-fuss way to share a single MongoDB connection across your codebase.</h5>
+            <em>Created to avoid duplicating database connection code across multiple services in one project - this made setup cleaner and DRYer.</em>
             <Link
               href="https://www.npmjs.com/package/@notross/mongo-singleton"
               target="_blank"
@@ -132,7 +134,8 @@ export default function Home() {
         <hr />
         <Blocks columns="6fr 6fr" reverse>
           <Block>
-            <p>A React component for rendering audio waveforms, with support for multiple audio sources and custom styling.</p>
+            <h5>A React component for rendering customizable audio waveforms from multiple sources.</h5>
+            <em>Built to solve a gap I hit in a project - I needed multiple synced waveforms for a single audio track, something existing libraries did not support.</em>
             <Link
               href="https://www.npmjs.com/package/@notross/react-waveform"
               target="_blank"
