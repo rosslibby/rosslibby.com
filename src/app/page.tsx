@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.header}>
-        <Target id="intro" insights={[
+        {/* <Target id="intro" insights={[
           {
             code: 'const { noun } = useIntro();',
             explanation: 'Get the "noun" variable from the useIntro() hook',
@@ -45,7 +45,8 @@ export default function Home() {
           { code: ');' },
         ]}>
           <Intro />
-        </Target>
+        </Target> */}
+        <Intro />
       </div>
       <hr />
       <Blocks>
