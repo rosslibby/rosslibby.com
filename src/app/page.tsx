@@ -1,3 +1,5 @@
+'use client'
+
 import { Blocks, BlockTitle, FeatureDemo, NpmPackages } from '@/components';
 import { Header } from './header';
 import { Hero } from './hero';
