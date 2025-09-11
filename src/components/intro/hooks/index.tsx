@@ -19,7 +19,7 @@ const _nouns = [
   'a React developer',
 ];
 
-const nouns = [
+const __nouns = [
   'Staff software engineer',
   'Typescript developer',
   'full-stack engineer',
@@ -32,6 +32,19 @@ const nouns = [
   // 'self-taught programmer',
   'musician',
   'React developer',
+];
+const nouns = [
+	'Staff Software Engineer',
+	'Full-Stack Engineer',
+	'Distributed Systems Engineer',
+	'Node.js Developer',
+	'GraphQL Developer',
+	'Mentor',
+	'Open-Source Contributor',
+	'Technical Leader',
+	'API Engineer',
+	'Cloud-Native Developer',
+	'Problem Solver',
 ];
 
 type useIntroProps = {

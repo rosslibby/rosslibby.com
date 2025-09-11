@@ -35,7 +35,7 @@ export const useDrawerCode = (
   const highlight = useCallback((container: HTMLPreElement) => {
     const code = container.querySelector('code') as HTMLElement;
     code.removeAttribute('data-highlighted');
-    hljs.highlightAll();
+    // hljs.highlightAll();
     highlighter(code);
     setReady(true);
   }, [explanations, lines, setReady]);

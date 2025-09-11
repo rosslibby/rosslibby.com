@@ -1,7 +1,12 @@
 .target {
   position: relative;
-
   width: max-content;
+
+  &[data-focused="true"] {
+    cursor: none;
+    position: relative;
+    z-index: 3;
+  }
 
   &:hover {
     cursor: none !important;
@@ -13,10 +18,4 @@
 
     width: max-content;
   }
-}
-
-.focused {
-  cursor: none;
-  position: relative;
-  z-index: 3;
 }

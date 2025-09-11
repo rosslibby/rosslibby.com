@@ -2,7 +2,8 @@
 
 .wrapper {
   --prev-bg: transparent;
-  background: var(--bg);
+  // background-color: #141921;
+  background-image: var(--bg);
   // border-radius: 10px;
   display: grid;
   grid-template-columns: 100%;
@@ -77,7 +78,6 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   opacity: 1;
   overflow: hidden;
-  transform: scale(1) perspective(700px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 
   height: max-content;
   width: max-content;
@@ -133,12 +133,11 @@
 .body {
   height: 100%;
   overflow: auto;
-  padding: 23px 0;
 
   .code {
     border: 0;
     line-height: 1.5;
-    padding: 0 23px;
+    padding: 1.5rem;
 
     pre {
       background: transparent !important;
@@ -148,6 +147,42 @@
       code {
         background: transparent;
         margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    background-image: none;
+    box-sizing: border-box;
+    background-color: #141921;
+    min-height: unset;
+    padding: 2rem 1rem;
+
+    .fadebg {
+      display: none;
+    }
+
+    .frame {
+      // background: #202936;
+      // background: #222a38;
+      // background: #1f2633;
+      // background: #46567536;
+      background-color: #1d2430;
+      border: 1px solid #2f445e;
+      border-radius: 0.5rem;
+      box-shadow: 0 50px 200px #87a0ffd9;
+      max-height: unset;
+      max-width: 100%;
+      width: 100%;
+
+      .header {
+        display: none;
+      }
+
+      .body code {
+        white-space: break-spaces;
       }
     }
   }

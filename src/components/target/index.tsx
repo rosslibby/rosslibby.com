@@ -55,3 +55,5 @@ export const Target = ({ children, id, insights }: {
     </div>
   );
 };
+
+export * from './minimalist';

@@ -4,13 +4,13 @@
   background-color: #0e131bd1;
   background-color: #0e131b;
   // background-color: var(--bg-main);
-  background: #151b24;
   background: #171d26;
   background: #131821;
   background: #161b24;
   background: #151b24;
   background: #0f151ce6;
   background: #141923d3;
+  background: #151b24;
   backdrop-filter: blur(4px);
   // border-left: 1px solid #2b3038;
   // border-left: 1px solid var(--border-color);
@@ -22,9 +22,11 @@
   grid-template-columns: 100%;
   grid-template-rows: repeat(4, 1fr);
   height: 100%;
+  overflow: auto;
   padding: 1.25rem;
   position: fixed;
   left: 100%;
+  scrollbar-width: none;
   top: 0;
   transform: translateX(0%);
   transition: all 150ms linear;
