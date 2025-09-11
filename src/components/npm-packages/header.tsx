@@ -7,7 +7,7 @@ type HeaderProps = {
   url: string;
   targeting?: boolean;
 };
-export const Header = ({ targeting, ...props }: HeaderProps) => {
+export const PackageHeader = ({ targeting, ...props }: HeaderProps) => {
   const Wrapper = targeting ? TargetHeader : BasicHeader;
 
   return (

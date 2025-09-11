@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Block, Blocks, Code } from '@/components';
-import { Header } from './header';
+import { PackageHeader as Header } from './header';
 
 type NpmPackageProps = {
   index: number;

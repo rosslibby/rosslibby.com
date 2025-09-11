@@ -1,10 +1,9 @@
 'use client'
 
-import Link from 'next/link';
-import { Block, Blocks, BlockTitle, FeatureDemo, Intro } from '@/components';
-import styles from './page.module.scss';
 import Image from 'next/image';
-import { NpmPackages } from '@/components';
+import Link from 'next/link';
+import { Block, Blocks, BlockTitle, FeatureDemo, Intro, NpmPackages } from '@/components';
+import styles from './page.module.scss';
 
 export default function Home() {
   return (
@@ -30,7 +29,6 @@ export default function Home() {
           <h3 style={{fontSize: '14px', fontWeight: 700}}>GitHub</h3>
         </Block>
         <Block style={{ justifyContent: 'center', alignItems: 'center', gap: '0.75rem' }}>
-          {/* <h3>LinkedIn</h3> */}
           <Link href="https://www.linkedin.com/in/rosslibby" target="_blank">
             <Image src="/InBug-White.png" width={32} height={32} alt="LinkedIn" />
           </Link>
@@ -40,7 +38,6 @@ export default function Home() {
           <h3 style={{fontSize: '14px', fontWeight: 700}}>LinkedIn</h3>
         </Block>
         <Block style={{ borderRight: 'none', justifyContent: 'start', alignItems: 'center', gap: '0.75rem' }}>
-          {/* <h3>NPM</h3> */}
           <Link href="https://www.npmjs.com/~rosslibby" target="_blank">
             <Image src="Npm-logo.svg" width={82.28} height={32} alt="LinkedIn" />
           </Link>
