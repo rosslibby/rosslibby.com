@@ -47,14 +47,14 @@ export default function Home() {
           <Intro />
         </Target>
       </div>
-      <FeatureDemo />
       <hr />
       <Blocks>
         <BlockTitle
-          title="Open-source projects"
-          subtitle="A minimal connection hub for Redis in Node.js: lazily creates and reuses named Redis clients"
+          title="Fullstack Node/Typescript Maven"
+          subtitle="From vision to production, I build software that lasts. I thrive on creating scalable systems and impactful user experiences that stand the test of time."
         />
       </Blocks>
+      <FeatureDemo />
       <div style={{
         display: 'flex',
         flexDirection: 'column',

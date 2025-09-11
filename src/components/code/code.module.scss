@@ -57,7 +57,8 @@
     border-top-left-radius: 1rem;
 
     .frame {
-      border-radius: 1rem;
+      border-bottom: none;
+      border-radius: inherit;
       height: 100%;
       max-width: 100%;
       width: 100%;

@@ -37,14 +37,10 @@ export const FeatureDemo = () => {
     }}>
       <div className={styles.container} style={{
         marginTop: '4rem',
-        maxWidth: '44rem',
+        maxWidth: '80rem',
       }}>
         <Feature>
-          <p>I'm Ross, a Staff Software Engineer with over a decade of experience building scalable, high-performance systems across fintech, logistics, and e-commerce. I specialize in TypeScript, React, Node.js, and distributed architectures, with a track record of shipping complex products from concept to production.</p>
-          <p>I thrive at the intersection of innovation and execution — from designing resilient microservices to crafting seamless user experiences. Beyond the code, I'm a mentor and open-source contributor who values collaboration, clarity, and long-term impact.</p>
-
-          <p>I am currently seeking a senior engineering role where I can drive technical leadership, contribute to impactful products, and continue growing alongside talented teams. Always excited to connect with fellow engineers, builders, and problem-solvers.</p>
-          {/* <Code code={redisHub.join('\n')} featured={true} /> */}
+          <Code code={redisHub.join('\n')} featured={true} />
         </Feature>
       </div>
     </div>

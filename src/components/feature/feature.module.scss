@@ -46,16 +46,17 @@
 }
 
 .floating {
+  --radius: 1.75rem;
   background-color: #ffffff26;
-  border: 0.0625rem solid #8c93fb;
+  // border: 0.0625rem solid #8c93fb;
   border: 0.0625rem solid #4e59ff;
   border-bottom: none;
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
 
   height: max-content;
   left: 0;
-  padding: 1rem 1rem 0;
+  padding: .625rem .625rem 0;
 
   position: relative;
   top: 0;
@@ -86,11 +87,12 @@
     border-radius: 50%;
     content: '';
     filter: blur(40px);
+    filter: blur(40px) brightness(.7);
     height: 62%;
     left: 8%;
     mix-blend-mode: color-dodge;
     position: absolute;
-    top: -12%;
+    top: -19%;
     transition: opacity 1s 1s;
     width: 84%;
     z-index: 0;
@@ -110,22 +112,36 @@
 }
 
 .content {
-  background-color: #ffffffca;
-  border-top-right-radius: 1rem;
-  border-top-left-radius: 1rem;
+  // background-color: #ffffff;
+  // border-top-left-radius: 1.25rem;
+  // border-top-right-radius: 1.25rem;
   box-sizing: border-box;
   color: black;
   display: flex;
   flex-direction: column;
-  font-family: Inter, sans-serif;
+  font-family: "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 1rem;
   font-weight: 400;
   gap: 1rem;
   height: max-content;
   line-height: 1.5;
-  padding: 1.25rem;
   position: relative;
   transition: opacity .2s cubic-bezier(0.165, 0.84, 0.44, 1),transform .2s cubic-bezier(0.165, 0.84, 0.44, 1);
   width: 100%;
   z-index: 1;
+
+  h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  p {
+    color: #8b949e;
+    font-size: 1.125rem;
+    font-weight: 450;
+    line-height: 1.5;
+  }
 }
