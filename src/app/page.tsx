@@ -31,21 +31,6 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.header}>
-        {/* <Target id="intro" insights={[
-          {
-            code: 'const { noun } = useIntro();',
-            explanation: 'Get the "noun" variable from the useIntro() hook',
-          },
-          { code: '' },
-          { code: 'return (' },
-          {
-            code: '  <h1>Hey, I\'m <span>{noun}</span>.</h1>',
-            explanation: 'Display a heading that introduces me as the noun we got from the useIntro() hook',
-          },
-          { code: ');' },
-        ]}>
-          <Intro />
-        </Target> */}
         <Intro />
       </div>
       <hr />

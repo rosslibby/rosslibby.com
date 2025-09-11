@@ -79,7 +79,7 @@ export const useIntro = ({
 
   const cycleIntro = useCallback(async () => {
     const noun = selectNoun();
-    await preRender(noun);
+    // await preRender(noun);
     setHistory((prev) => [...prev, noun]);
     setNoun(noun);
     update(noun);
