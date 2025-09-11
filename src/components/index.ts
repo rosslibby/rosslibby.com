@@ -6,5 +6,6 @@ export * from './docs';
 export * from './drawer';
 export * from './feature';
 export * from './intro';
+export * from './npm-packages';
 export * from './target';
 export * from './viewfinder';
