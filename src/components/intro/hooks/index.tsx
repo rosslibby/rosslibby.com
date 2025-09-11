@@ -48,10 +48,12 @@ const nouns = [
 ];
 
 type useIntroProps = {
+  targeting?: boolean;
   targetId: string;
   manualCycle?: boolean;
 };
 export const useIntro = ({
+  targeting,
   targetId,
   manualCycle,
 }: useIntroProps) => {
@@ -79,11 +81,13 @@ export const useIntro = ({
 
   const cycleIntro = useCallback(async () => {
     const noun = selectNoun();
-    // await preRender(noun);
+    if (targeting) {
+      await preRender(noun);
+    }
     setHistory((prev) => [...prev, noun]);
     setNoun(noun);
     update(noun);
-  }, [selectNoun, setNoun, update]);
+  }, [selectNoun, setNoun, targeting, update]);
 
   const preRender = useCallback(async (noun: string) => {
     const bounds = await prerender(targetId, noun);

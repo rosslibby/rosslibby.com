@@ -11,6 +11,7 @@ export * from './hooks';
 export const Intro = ({ target }: { target?: boolean }) => {
   const { presize } = useContext(viewfinderCtx);
   const { dimensions: [width, height], current, noun } = useIntro({
+    targeting: target,
     targetId: 'intro',
     manualCycle: false,
   });
