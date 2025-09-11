@@ -29,21 +29,23 @@ export const Block = ({ children, className, style }: {
   );
 };
 
-export const Blocks = ({ children, columns, reverse }: {
+export const Blocks = ({ children, columns, reverse, style }: {
   children: React.ReactNode;
   columns?: string;
   reverse?: boolean;
+  style?: React.CSSProperties;
 }) => {
   const classname = [
     styles.row,
     ...(reverse ? [styles.reverse] : []),
   ].join(' ');
-  const style = {
+  const inlineStyle = {
     '--columns': columns,
+    ...style,
   } as React.CSSProperties;
 
   return (
-    <div className={classname} style={style}>
+    <div className={classname} style={inlineStyle}>
       {children}
     </div>
   );
