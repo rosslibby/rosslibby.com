@@ -60,6 +60,15 @@ export const useIntro = ({
   const [dimensions, setDimensions] = useState<[number, number]>([0, 0]);
   const { current, switching, update } = useTyping(noun);
 
+  const updateTitle = useCallback(() => {
+    const title = `Ross Libby | ${current}`;
+    document.title = title;
+  }, [current]);
+
+  useEffect(() => {
+    updateTitle();
+  }, [current]);
+
   const selectNoun = useCallback((): string => {
     const available = nouns.filter((n) => !history.includes(n));
     const index = Math.floor(Math.random() * available.length);
