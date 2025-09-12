@@ -3,15 +3,14 @@
 import { Blocks, BlockTitle, FeatureDemo, NpmPackages } from '@/components';
 import { Header } from './header';
 import { Hero } from './hero';
-import styles from './page.module.scss';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <>
       <Header />
       <hr />
       <Hero />
-      <div><FeatureDemo /></div>
+      <FeatureDemo />
       <Blocks>
         <BlockTitle
           title="Open source contributions"
@@ -19,6 +18,6 @@ export default function Home() {
         />
       </Blocks>
       <NpmPackages />
-    </main>
+    </>
   );
 }
