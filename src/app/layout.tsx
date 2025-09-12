@@ -5,7 +5,7 @@ import { DocsProvider } from '@/docs-context';
 import { ViewfinderProvider } from '@/viewfinder-context';
 import { fontsClassname } from './fonts';
 import './globals.css';
-import '../components/docs/markdown.css';
+// import '../components/docs/markdown.css';
 
 export const metadata: Metadata = {
   title: 'Ross Libby',
