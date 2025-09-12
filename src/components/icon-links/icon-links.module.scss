@@ -1,0 +1,107 @@
+.wrapper {
+  --radius: 1.25rem;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.background {
+  bottom: 0;
+  height: 100%;
+  left: 50%;
+  mask-image: linear-gradient(180deg, #ffffff00, #ffffff 25%);
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+
+  &::before, &::after {
+    border-radius: var(--radius);
+    content: '';
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &::before {
+    background: linear-gradient(180deg, #2732e700 57.46%, #3e48ffbd 112.96%);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &::after {
+    background: linear-gradient(180deg, #00000000 47.42%, #0e0aa280 104.56%);
+    border-radius: 50%;
+    content: '';
+    filter: blur(40px) brightness(.7);
+    height: 136%;
+    left: 0;
+    mix-blend-mode: color-dodge;
+    position: absolute;
+    top: -18%;
+    transition: opacity 1s 1s;
+    width: 100%;
+    z-index: 0;
+  }
+}
+
+.frame {
+  align-items: center;
+  background-color: #ffffff26;
+  border: 0.0625rem solid #64749e;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  padding: 1.5rem;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  img {
+    height: auto;
+    width: 56%;
+  }
+
+  &::before {
+    background: radial-gradient(141.53% 114.68% at 87.46% 55.27%, #69beff 36.75%, #033db6 100%);
+    background: radial-gradient(#ffc58b 10%, #e1a6ff 20% 30%, #3c94ff 60%);
+    background: radial-gradient(#80a8ff 10%, #89b0ff 30% 50%, #6c98ff 70%);
+    border-radius: inherit;
+    // box-shadow: 0 0 40px 0 #6c80ff;
+    // box-shadow: 0 0 40px 0 #5970ff;
+    content: '';
+    // filter: saturate(2) blur(40px);
+    filter: saturate(1.1) blur(16px);
+    height: 100%;
+    left: 0;
+    opacity: 0.85;
+    position: absolute;
+    top: 0;
+    transform: scale(1.05);
+    mix-blend-mode: plus-lighter;
+    width: 100%;
+    z-index: -2;
+  }
+
+  &::after {
+    background: radial-gradient(#ffc58b 10%, #e1a6ff 20%, #e1a6ff 30%, #352cee 60%);
+    border-radius: 50%;
+    // content: '';
+    filter: blur(40px) brightness(.7);
+    height: 62%;
+    left: 8%;
+    mix-blend-mode: color-dodge;
+    position: absolute;
+    top: -19%;
+    transition: opacity 1s 1s;
+    width: 84%;
+    z-index: 0;
+    opacity: .3;
+  }
+}

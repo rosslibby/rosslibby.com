@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Block, Blocks, BlockTitle } from '@/components';
+import { Block, Blocks, BlockTitle, IconLink } from '@/components';
 
 export const Hero = () => {
   return (
@@ -11,9 +11,16 @@ export const Hero = () => {
           subtitle="From vision to production, I build software that lasts. I thrive on creating scalable systems and impactful user experiences that stand the test of time."
         />
       </Blocks>
-      <Blocks columns="repeat(3, 1fr)" style={{ maxWidth: '40rem', zIndex: 2 }}>
+      <Blocks columns="repeat(3, 1fr)" style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        maxWidth: '40rem',
+        zIndex: 2,
+      }}>
         <OuterLink
           style={{
+            aspectRatio: 1,
+            width: '8.5rem',
             alignItems: 'center',
             borderLeft: 'none',
             gap: '0.5rem',
@@ -26,6 +33,8 @@ export const Hero = () => {
         />
         <OuterLink
           style={{
+            aspectRatio: 1,
+            width: '8.5rem',
             alignItems: 'center',
             gap: '0.75rem',
             justifyContent: 'center',
@@ -37,6 +46,8 @@ export const Hero = () => {
         />
         <OuterLink
           style={{
+            aspectRatio: 1,
+            width: '8.5rem',
             alignItems: 'center',
             borderRight: 'none',
             gap: '0.75rem',
@@ -60,16 +71,17 @@ type OuterLinkProps = {
   style: React.CSSProperties;
 };
 const OuterLink = ({ alias, logo, name, style, url }: OuterLinkProps) => (
-  <Block style={style}>
-    <Link href={url} target="_blank">
+  <Block style={{
+    ...style,
+    borderLeft: 'none',
+    padding: 0,
+  }}>
+    <IconLink>
       <Image src={logo} width={32} height={32} alt={name} />
-    </Link>
-    <p>
-      <Link href={url} target="_blank">{alias}</Link>
-    </p>
-    <h3 style={{
-      fontSize: '14px',
-      fontWeight: 700,
-      }}>{name}</h3>
+      <p>
+        <Link href={url} target="_blank">{alias}</Link>
+      </p>
+    </IconLink>
+    <h3 style={{ fontSize: '14px', fontWeight: 350, marginTop: '1rem' }}>{name}</h3>
   </Block>
 );
