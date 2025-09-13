@@ -1,14 +1,17 @@
 'use client'
 
+import { useRef } from 'react';
 import { Blocks, BlockTitle, FeatureDemo, NpmPackages } from '@/components';
-import { Header } from './header';
-import { Hero } from './hero';
+import { Header, Hero } from '@/components';
+import styles from './page.module.scss';
 
 export default function Home() {
+  const layoutRef = useRef<HTMLDivElement>(null);
+
   return (
-    <>
-      <Header />
-      <hr />
+    <div className={styles.layout} ref={layoutRef}>
+      <Header layoutRef={layoutRef} />
+      <hr className="inset" />
       <Hero />
       <FeatureDemo />
       <Blocks>
@@ -18,6 +21,6 @@ export default function Home() {
         />
       </Blocks>
       <NpmPackages />
-    </>
+    </div>
   );
 }

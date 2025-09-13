@@ -10,7 +10,7 @@ export * from './hooks';
 
 export const Intro = ({ target }: { target?: boolean }) => {
   const { presize } = useContext(viewfinderCtx);
-  const { dimensions: [width, height], current, noun } = useIntro({
+  const { dimensions: [width, height], current } = useIntro({
     targeting: target,
     targetId: 'intro',
     manualCycle: false,
@@ -30,7 +30,7 @@ export const Intro = ({ target }: { target?: boolean }) => {
           <span className={styles.givenName}>Ross</span>
           <span className={styles.familyName}>Libby</span>
         </span>
-        <span className={styles.noun}>{current}</span>
+        <span className={styles.descriptor}>{current}</span>
       </h1>
     </Wrapper>
   );

@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTyping } from './typing';
 import styles from '../intro.module.scss';
 
-const _nouns = [
+const _descriptors = [
   'a Staff software engineer',
   'a Typescript developer',
   'a full-stack engineer',
@@ -19,7 +19,7 @@ const _nouns = [
   'a React developer',
 ];
 
-const __nouns = [
+const __descriptors = [
   'Staff software engineer',
   'Typescript developer',
   'full-stack engineer',
@@ -33,7 +33,7 @@ const __nouns = [
   'musician',
   'React developer',
 ];
-const nouns = [
+const descriptors = [
 	'Staff Software Engineer',
 	'Full-Stack Engineer',
 	'Distributed Systems Engineer',
@@ -57,10 +57,10 @@ export const useIntro = ({
   targetId,
   manualCycle,
 }: useIntroProps) => {
-  const [history, setHistory] = useState<string[]>([nouns[0]]);
-  const [noun, setNoun] = useState(nouns[0]);
+  const [history, setHistory] = useState<string[]>([descriptors[0]]);
+  const [descriptor, setDescriptor] = useState(descriptors[0]);
   const [dimensions, setDimensions] = useState<[number, number]>([0, 0]);
-  const { current, switching, update } = useTyping(noun);
+  const { current, update } = useTyping(descriptor);
 
   const updateTitle = useCallback(() => {
     const title = `Ross Libby | ${current}`;
@@ -71,26 +71,29 @@ export const useIntro = ({
     updateTitle();
   }, [current]);
 
-  const selectNoun = useCallback((): string => {
-    const available = nouns.filter((n) => !history.includes(n));
+  const selectdescriptor = useCallback((): string => {
+    const available = descriptors.filter((n) => !history.includes(n));
     const index = Math.floor(Math.random() * available.length);
-    const noun = available[index] || nouns[index];
-    setHistory((entries) => !available.length ? [noun] : [...entries, noun]);
-    return noun;
+    const descriptor = available[index] || descriptors[index];
+    setHistory((entries) => !available.length
+      ? [descriptor]
+      : [...entries, descriptor]
+    );
+    return descriptor;
   }, [history, setHistory]);
 
   const cycleIntro = useCallback(async () => {
-    const noun = selectNoun();
+    const descriptor = selectdescriptor();
     if (targeting) {
-      await preRender(noun);
+      await preRender(descriptor);
     }
-    setHistory((prev) => [...prev, noun]);
-    setNoun(noun);
-    update(noun);
-  }, [selectNoun, setNoun, targeting, update]);
+    setHistory((prev) => [...prev, descriptor]);
+    setDescriptor(descriptor);
+    update(descriptor);
+  }, [selectdescriptor, setDescriptor, targeting, update]);
 
-  const preRender = useCallback(async (noun: string) => {
-    const bounds = await prerender(targetId, noun);
+  const preRender = useCallback(async (descriptor: string) => {
+    const bounds = await prerender(targetId, descriptor);
     const [prevWidth] = dimensions;
     const widthDecreased = prevWidth > bounds.width;
     const delay = widthDecreased ? 0 : 350;
@@ -129,18 +132,21 @@ export const useIntro = ({
         document.removeEventListener('keydown', cycle);
       }
     };
-  }, [manualCycle, noun]);
+  }, [manualCycle, descriptor]);
 
-  return { current, dimensions, noun };
+  return { current, dimensions, descriptor };
 };
 
-async function prerender(targetId: string, noun: string): Promise<DOMRect> {
+async function prerender(
+  targetId: string,
+  descriptor: string,
+): Promise<DOMRect> {
   const target = document.querySelector(
     `[data-target-id="${targetId}"]`
   ) as HTMLDivElement;
   const clone = target.cloneNode(true) as HTMLDivElement;
   clone.querySelector('h1')?.removeAttribute('style');
-  clone.querySelector('span')!.textContent = noun;
+  clone.querySelector('span')!.textContent = descriptor;
   clone.classList.add(styles.prerender);
   clone.setAttribute('data-clone-id', targetId);
   clone.style.width = 'max-content';

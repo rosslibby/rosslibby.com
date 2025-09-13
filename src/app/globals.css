@@ -11,6 +11,12 @@
   --col2: #21262d; */
 }
 
+@media screen and (max-width: 480px) {
+  :root {
+    --content-width: 96%;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -109,4 +115,9 @@ hr {
   border: none;
   border-top: 1px solid var(--border-color);
   width: 100%;
+
+  &.inset {
+    border-bottom: 1px solid #a3caf714;
+    border-top: 2px solid #000000;
+  }
 }
