@@ -58,3 +58,20 @@ https://shiki.matsu.io/
 #4a58ff
 #224aff
 ```
+
+---
+
+<br />
+<br />
+
+# Gemini feedback
+
+## Intro
+
+Loading Time: The timing you've chosen is good (75ms per character). However, make sure the overall effect isn't so slow that a user gets impatient. The 2500ms pause is a good balance to ensure it’s readable but doesn't feel sluggish.
+
+Accessibility: Ensure the visual effect doesn't cause issues for users with motion sensitivity. You could consider a subtle "reduce motion" CSS media query to disable the animation for users who prefer it.
+
+Mobile Responsiveness: A long list of descriptors might wrap awkwardly on a small mobile screen. Ensure your CSS is flexible enough to handle this gracefully without breaking the layout. The text may need to be a bit smaller on mobile, or you might choose to show a shorter, static descriptor.
+
+Keyword Matching: While your list is great, you could add a few more high-value keywords that you've highlighted on your resume to ensure consistency. For example, "AWS/GCP Specialist," "Microservices Architect," or "Full-Stack Web Developer." This ensures that anyone scanning your site for specific skills will find them.

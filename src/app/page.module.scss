@@ -1,16 +1,11 @@
-.header {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 2rem 2rem 0;
-  margin: 0 auto;
-  max-width: var(--content-width);
-  width: 100%;
-}
-
 .container {
   max-width: var(--content-width);
   margin: 0 auto;
+}
+
+.layout {
+  display: grid;
+  height: 100vh;
+  overflow: auto;
+  overflow-x: hidden;
 }

@@ -5,6 +5,8 @@ export * from './cursor';
 export * from './docs';
 export * from './drawer';
 export * from './feature';
+export * from './header';
+export * from './hero';
 export * from './intro';
 export * from './npm-packages';
 export * from './target';
