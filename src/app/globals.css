@@ -11,6 +11,12 @@
   --col2: #21262d; */
 }
 
+@media screen and (max-width: 480px) {
+  :root {
+    --content-width: 96%;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
