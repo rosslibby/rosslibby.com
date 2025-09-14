@@ -159,6 +159,10 @@
     min-height: unset;
     padding: 2rem 1rem;
 
+    &.featured {
+      padding: 0;
+    }
+
     .frame {
       // background: #202936;
       // background: #222a38;
