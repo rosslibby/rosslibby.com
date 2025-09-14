@@ -25,6 +25,7 @@ export const NpmPackage = (props: NpmPackageProps) => {
   } = props;
   const attrs = {
     columns: '6fr 6fr',
+    collapse: true,
     ...(reverse ? { reverse: true } : {}),
   };
 
