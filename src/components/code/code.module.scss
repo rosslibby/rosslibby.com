@@ -153,15 +153,11 @@
 
 @media screen and (max-width: 480px) {
   .wrapper {
-    background-image: none;
+    // background-image: none;
     box-sizing: border-box;
-    background-color: #141921;
+    // background-color: #141921;
     min-height: unset;
     padding: 2rem 1rem;
-
-    .fadebg {
-      display: none;
-    }
 
     .frame {
       // background: #202936;
@@ -171,7 +167,7 @@
       background-color: #1d2430;
       border: 1px solid #2f445e;
       border-radius: 0.5rem;
-      box-shadow: 0 50px 200px #87a0ffd9;
+      // box-shadow: 0 50px 200px #87a0ffd9;
       max-height: unset;
       max-width: 100%;
       width: 100%;
