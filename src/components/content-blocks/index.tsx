@@ -29,8 +29,9 @@ export const Block = ({ children, className, style }: {
   );
 };
 
-export const Blocks = ({ children, columns, reverse, style }: {
+export const Blocks = ({ children, collapse, columns, reverse, style }: {
   children: React.ReactNode;
+  collapse?: boolean;
   columns?: string;
   reverse?: boolean;
   style?: React.CSSProperties;
@@ -38,6 +39,7 @@ export const Blocks = ({ children, columns, reverse, style }: {
   const classname = [
     styles.row,
     ...(reverse ? [styles.reverse] : []),
+    ...(collapse ? [styles.collapse] : []),
   ].join(' ');
   const inlineStyle = {
     '--columns': columns,
