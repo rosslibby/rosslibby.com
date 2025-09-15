@@ -76,5 +76,5 @@ export const useTyping = (initialText: string) => {
     }
   }, [backspace, backspacing]);
 
-  return { current, switching, update };
+  return { current, switching, text, update };
 };

@@ -1,9 +1,9 @@
 'use client'
 
 import { useContext } from 'react';
-import { useIntro } from './hooks';
 import { viewfinderCtx } from '@/viewfinder-context';
 import { Target } from '@/components';
+import { useIntro } from './hooks';
 import styles from './intro.module.scss';
 
 export * from './hooks';

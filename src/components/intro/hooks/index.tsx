@@ -60,12 +60,12 @@ export const useIntro = ({
   const [history, setHistory] = useState<string[]>([descriptors[0]]);
   const [descriptor, setDescriptor] = useState(descriptors[0]);
   const [dimensions, setDimensions] = useState<[number, number]>([0, 0]);
-  const { current, update } = useTyping(descriptor);
+  const { current, text, update } = useTyping(descriptor);
 
   const updateTitle = useCallback(() => {
-    const title = `Ross Libby | ${current}`;
+    const title = `Ross Libby | ${text}`;
     document.title = title;
-  }, [current]);
+  }, [text]);
 
   useEffect(() => {
     updateTitle();
