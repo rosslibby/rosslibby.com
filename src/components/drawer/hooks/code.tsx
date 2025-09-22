@@ -7,7 +7,6 @@ import {
   useEffect,
   useState,
 } from 'react';
-import hljs from 'highlight.js';
 import { Explanation, TargetInsight } from '@/types';
 import { viewfinderCtx } from '@/viewfinder-context';
 import { cursorCtx } from '@/cursor-context';
