@@ -1,3 +1,4 @@
+<!--
 ### UI inspiration (?)
 - https://www.npmjs.com/package/create-create-app
 - https://vineetmishrahbk.medium.com/crafting-chronological-brilliance-building-a-timeline-in-your-portfolio-using-react-js-33e28afff012
@@ -74,4 +75,4 @@ Accessibility: Ensure the visual effect doesn't cause issues for users with moti
 
 Mobile Responsiveness: A long list of descriptors might wrap awkwardly on a small mobile screen. Ensure your CSS is flexible enough to handle this gracefully without breaking the layout. The text may need to be a bit smaller on mobile, or you might choose to show a shorter, static descriptor.
 
-Keyword Matching: While your list is great, you could add a few more high-value keywords that you've highlighted on your resume to ensure consistency. For example, "AWS/GCP Specialist," "Microservices Architect," or "Full-Stack Web Developer." This ensures that anyone scanning your site for specific skills will find them.
+Keyword Matching: While your list is great, you could add a few more high-value keywords that you've highlighted on your resume to ensure consistency. For example, "AWS/GCP Specialist," "Microservices Architect," or "Full-Stack Web Developer." This ensures that anyone scanning your site for specific skills will find them.-->
