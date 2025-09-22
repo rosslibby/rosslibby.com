@@ -61,6 +61,7 @@ Every detail, from component architecture to hover states, is intentional. The p
 
 ---
 <br>
-<sup>1</sup> Of course, such effortless cooperation is easier to achieve when I'm both the designer and the engineer 😬
 
-<sup>2</sup> If you dig, you'll find a dyanmic viewfinder component, and maybe even an experimental documentation API parser 🤫
+> <sup>1</sup> Of course, such effortless cooperation is easier to achieve when I'm both the designer and the engineer 😬
+
+> <sup>2</sup> If you dig, you'll find a dyanmic viewfinder component, and maybe even an experimental documentation API parser 🤫
