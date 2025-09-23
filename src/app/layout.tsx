@@ -5,6 +5,7 @@ import { DocsProvider } from '@/docs-context';
 import { ViewfinderProvider } from '@/viewfinder-context';
 import { fontsClassname } from './fonts';
 import './globals.css';
+import Head from 'next/head';
 // import '../components/docs/markdown.css';
 
 export const metadata: Metadata = {
@@ -29,6 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="dark">
+      <Head>
+        <link
+          rel="apple-touch-icon"
+          href="/apple-touch-icon.svg"
+          type="image/svg"
+        />
+      </Head>
       <CursorProvider>
         <body className={fontsClassname}>
           <ViewfinderProvider>
