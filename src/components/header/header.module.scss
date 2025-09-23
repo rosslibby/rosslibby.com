@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-size: 28px;
   box-shadow: inset -3px 0 0 -1px #000, 1px 0 0 0px #a3caf714;
-  height: 64px;
+  height: 56px;
   width: 64px;
 }
 
@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   position: sticky;
   margin: 0 auto;
   top: 0;
@@ -25,15 +25,12 @@
   z-index: 3;
 
   &.collapsed {
-    border-bottom: 1px solid #3873ff29;
-    padding: 1rem 2rem;
+    border-bottom: 1px solid #2d406d4d;
+    padding: 0.75rem 2rem;
 
     .logo {
       background-size: 24px;
-      border-radius: 8px;
-      box-shadow: 0 0 0px 2px #3873ff29;
-      height: 44px;
-      width: 44px;
+      height: 48px;
     }
   }
 }
@@ -61,6 +58,10 @@
 @media screen and (max-width: 580px) {
   .header {
     padding: 1.5rem 2rem;
+
+    &.collapsed {
+      padding: 1rem 2rem;
+    }
   }
   .logo {
     display: none;
