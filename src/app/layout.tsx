@@ -5,6 +5,7 @@ import { DocsProvider } from '@/docs-context';
 import { ViewfinderProvider } from '@/viewfinder-context';
 import { fontsClassname } from './fonts';
 import './globals.css';
+import Head from 'next/head';
 // import '../components/docs/markdown.css';
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   description: 'Staff Software Engineer',
   icons: {
     icon: [
-      { url: '/rosslibbycom-logo-circle.svg' },
+      { url: '/rosslibbycom-logo-bold-outline-bordered.svg' },
       { url: '/rosslibbycom-logo-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/rosslibbycom-logo-32x32.png', sizes: '32x32', type: 'image/png' },
       { url: '/rosslibbycom-logo-48x48.png', sizes: '48x48', type: 'image/png' },
@@ -29,6 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="dark">
+      <Head>
+        <link
+          rel="apple-touch-icon"
+          href="/apple-touch-icon.svg"
+          type="image/svg"
+        />
+      </Head>
       <CursorProvider>
         <body className={fontsClassname}>
           <ViewfinderProvider>
