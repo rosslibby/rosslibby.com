@@ -1,11 +1,22 @@
+.logo {
+  background-image: url('/rosslibbycom-logo-bold-outline-no-background.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  box-shadow: inset -3px 0 0 -1px #000, 1px 0 0 0px #a3caf714;
+  height: 64px;
+  width: 64px;
+}
+
 .header {
   align-items: center;
   background-color: var(--bg-main);
+  border-bottom: 1px solid transparent;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding: 2rem 2rem;
+  padding: 0 2rem;
   position: sticky;
   margin: 0 auto;
   top: 0;
@@ -14,12 +25,44 @@
   z-index: 3;
 
   &.collapsed {
+    border-bottom: 1px solid #3873ff29;
     padding: 1rem 2rem;
+
+    .logo {
+      background-size: 24px;
+      border-radius: 8px;
+      box-shadow: 0 0 0px 2px #3873ff29;
+      height: 44px;
+      width: 44px;
+    }
   }
 }
 
 .container {
   max-width: var(--content-width);
-  margin: 0 auto;
   width: 100%;
+}
+
+.content {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media screen and (max-with: 580px) {
+  .logo {
+    outline: 4px solid red;
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 580px) {
+  .header {
+    padding: 1.5rem 2rem;
+  }
+  .logo {
+    display: none;
+  }
 }

@@ -16,7 +16,10 @@ export const Header = ({ layoutRef }: {
   return (
     <header className={classname}>
       <div className={styles.container}>
-        <Intro />
+        <div className={styles.content}>
+          <div className={styles.logo} />
+          <Intro />
+        </div>
       </div>
     </header>
   );
