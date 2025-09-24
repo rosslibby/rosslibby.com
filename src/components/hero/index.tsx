@@ -59,7 +59,7 @@ type OuterLinkProps = {
   alias: string;
   style: React.CSSProperties;
 };
-const OuterLink = ({ alias, logo, name, style, url }: OuterLinkProps) => (
+export const OuterLink = ({ alias, logo, name, style, url }: OuterLinkProps) => (
   <Block style={style}>
     <Link href={url} target="_blank">
       <Image src={logo} width={32} height={32} alt={name} />
