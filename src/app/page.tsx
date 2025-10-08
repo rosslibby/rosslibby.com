@@ -9,11 +9,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
-  const layoutRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className={styles.layout} ref={layoutRef}>
-      <Header layoutRef={layoutRef} />
+    <div className={styles.layout}>
+      <Header />
       <hr className="inset" />
       <Hero />
       <FeatureDemo />
