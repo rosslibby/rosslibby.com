@@ -176,4 +176,12 @@
       flex-direction: column-reverse;
     }
   }
+
+  .block {
+    border-left: none;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
 }

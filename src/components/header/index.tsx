@@ -4,10 +4,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { Intro } from '@/components';
 import styles from './header.module.scss';
 
-export const Header = ({ layoutRef }: {
-  layoutRef: React.RefObject<HTMLDivElement | null>;
-}) => {
-  const { sticky } = useStickyHeader(layoutRef);
+export const Header = () => {
+  const { sticky } = useStickyHeader();
   const classname = [
     styles.header,
     ...(sticky ? [styles.collapsed] : []),
@@ -25,34 +23,37 @@ export const Header = ({ layoutRef }: {
   );
 };
 
-const useStickyHeader = (ref: React.RefObject<HTMLDivElement | null>) => {
+const useStickyHeader = () => {
   const [sticky, setSticky] = useState(false);
 
-  const scrolling = useCallback((e: Event) => {
-    const target = e.target as HTMLDivElement;
-    const distance = target.scrollTop;
+  const scrolling = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      const distance = window.scrollY;
 
-    if (distance > 32 && !sticky) {
-      setSticky(true);
-    } else if (distance < 16 && sticky) {
-      setSticky(false);
+      if (distance > 32 && !sticky) {
+        setSticky(true);
+      } else if (distance < 16 && sticky) {
+        setSticky(false);
+      }
     }
   }, [sticky, setSticky]);
 
   useEffect(() => {
-    let current = ref.current || null;
+    console.log(`Header is now ${sticky ? 'sticky' : 'not sticky'}`)
+  }, [sticky])
 
-    if (current) {
-      current.addEventListener('scroll', scrolling);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      console.log('Setting up window')
+      window.addEventListener('scroll', scrolling);
     }
 
     return () => {
-      if (current) {
-        current.removeEventListener('scroll', scrolling);
-        current = null;
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('scroll', scrolling);
       }
     };
-  }, [ref, scrolling]);
+  }, [scrolling]);
 
   return { sticky };
 };
