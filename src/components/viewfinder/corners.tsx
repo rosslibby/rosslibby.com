@@ -1,4 +1,4 @@
-import styles from './viewfinder.module.scss';
+import styles from './viewfinder.module.css';
 
 const distance = 75;
 const points = Array.from({ length: 4 }, (_, i) => ({

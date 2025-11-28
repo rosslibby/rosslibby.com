@@ -1,5 +1,5 @@
 'use client';
-import styles from './content-blocks.module.scss';
+import styles from './content-blocks.module.css';
 
 export const BlockTitle = ({ title, subtitle }: {
   title: string;

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { useDrawerComponent } from './hooks';
-import styles from './drawer.module.scss';
+import styles from './drawer.module.css';
 
 export const Component = () => {
   const containerRef = useRef<HTMLDivElement>(null);

@@ -5,7 +5,7 @@ import { viewfinderCtx } from '@/viewfinder-context';
 import { cursorCtx } from '@/cursor-context';
 import { Locked, Scoped } from './corners';
 import { useViewfinder } from './hooks';
-import styles from './viewfinder.module.scss';
+import styles from './viewfinder.module.css';
 
 export const Viewfinder = ({ id, target }: {
   id: string;

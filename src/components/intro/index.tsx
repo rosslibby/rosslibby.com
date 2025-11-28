@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { viewfinderCtx } from '@/viewfinder-context';
 import { Target } from '@/components';
 import { useIntro } from './hooks';
-import styles from './intro.module.scss';
+import styles from './intro.module.css';
 
 export * from './hooks';
 

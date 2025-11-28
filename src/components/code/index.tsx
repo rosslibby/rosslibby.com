@@ -1,7 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { useBackgrounds, useCode } from './hooks';
-import styles from './code.module.scss';
+import styles from './code.module.css';
 
 export const Code = ({ code, featured, language, background, title }: {
   code: string;

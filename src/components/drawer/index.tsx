@@ -6,7 +6,7 @@ import { Docs } from '@/components';
 import { Code } from './code';
 import { Component } from './component';
 import { useDrawer } from './hooks';
-import styles from './drawer.module.scss';
+import styles from './drawer.module.css';
 
 export const Drawer = () => {
   const containerRef = useRef<HTMLDivElement>(null);

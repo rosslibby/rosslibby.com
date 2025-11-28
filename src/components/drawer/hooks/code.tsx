@@ -10,7 +10,7 @@ import {
 import { Explanation, TargetInsight } from '@/types';
 import { viewfinderCtx } from '@/viewfinder-context';
 import { cursorCtx } from '@/cursor-context';
-import styles from '../code.module.scss';
+import styles from '../code.module.css';
 
 export const useDrawerCode = (
   preRef: RefObject<HTMLPreElement | null>,

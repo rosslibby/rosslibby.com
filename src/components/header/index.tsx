@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { Intro } from '@/components';
-import styles from './header.module.scss';
+import styles from './header.module.css';
 
 export const Header = () => {
   const { sticky } = useStickyHeader();
