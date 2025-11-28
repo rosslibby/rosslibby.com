@@ -48,7 +48,7 @@
 .floating {
   --radius: 1.75rem;
   background-color: #ffffff26;
-  // border: 0.0625rem solid #8c93fb;
+  /* border: 0.0625rem solid #8c93fb; */
   border: 0.0625rem solid #4e59ff;
   border-bottom: none;
   border-top-left-radius: var(--radius);
@@ -112,9 +112,9 @@
 }
 
 .content {
-  // background-color: #ffffff;
-  // border-top-left-radius: 1.25rem;
-  // border-top-right-radius: 1.25rem;
+  /* background-color: #ffffff; */
+  /* border-top-left-radius: 1.25rem; */
+  /* border-top-right-radius: 1.25rem; */
   box-sizing: border-box;
   color: black;
   display: flex;
