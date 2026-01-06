@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { Block, Blocks, BlockTitle } from '@/components';
 
 type HeroProps = {
-  title: string
-  subtitle?: string
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
 }
 export const Hero = ({ title, subtitle }: HeroProps) => {
   return (
