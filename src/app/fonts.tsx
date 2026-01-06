@@ -1,4 +1,5 @@
 import {
+  Google_Sans,
   Inter,
   Inter_Tight,
   Mona_Sans,
@@ -13,6 +14,7 @@ const outfit = Outfit({ subsets: ['latin'] });
 const rethink = Rethink_Sans({ subsets: ['latin'] });
 const roboto = Roboto({ subsets: ['latin'] });
 const mona = Mona_Sans({ subsets: ['latin'] });
+const google = Google_Sans({ subsets: ['latin'] });
 
 export const fontsClassname = [
   inter.className,
@@ -21,4 +23,5 @@ export const fontsClassname = [
   rethink.className,
   roboto.className,
   mona.className,
+  google.className,
 ].join(' ');
