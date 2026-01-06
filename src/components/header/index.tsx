@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Intro } from '@/components';
 import styles from './header.module.css';
+import Link from 'next/link';
 
 export const Header = () => {
   const { sticky } = useStickyHeader();
@@ -15,7 +16,7 @@ export const Header = () => {
     <header className={classname}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <div className={styles.logo} />
+          <Link href="/"><div className={styles.logo} /></Link>
           <Intro />
         </div>
       </div>
