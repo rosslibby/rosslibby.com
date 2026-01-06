@@ -1,19 +1,20 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { Intro } from '@/components';
 import styles from './header.module.css';
-import Link from 'next/link';
 
 export const Header = () => {
-  const { sticky } = useStickyHeader();
+  const headerRef = useRef<HTMLElement>(null);
+  const { sticky } = useStickyHeader(headerRef);
   const classname = [
     styles.header,
     ...(sticky ? [styles.collapsed] : []),
   ].join(' ');
 
   return (
-    <header className={classname}>
+    <header className={classname} ref={headerRef}>
       <div className={styles.container}>
         <div className={styles.content}>
           <Link href="/"><div className={styles.logo} /></Link>
@@ -24,28 +25,36 @@ export const Header = () => {
   );
 };
 
-const useStickyHeader = () => {
+const useStickyHeader = (ref: React.RefObject<HTMLElement | null>) => {
   const [sticky, setSticky] = useState(false);
+  const [headerHeight, setHeaderHeight] = useState(88);
+
+  const updateHeaderHeight = useCallback(() => {
+    if (ref.current) {
+      setHeaderHeight(ref.current.offsetHeight);
+    }
+  }, [ref, setHeaderHeight]);
+
+  useEffect(() => {
+    if (ref.current) {
+      updateHeaderHeight();
+    }
+  }, [ref, updateHeaderHeight])
 
   const scrolling = useCallback(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && ref.current) {
       const distance = window.scrollY;
 
-      if (distance > 32 && !sticky) {
+      if (distance > headerHeight * .8 && !sticky) {
         setSticky(true);
-      } else if (distance < 16 && sticky) {
+      } else if (distance < headerHeight * .4 && sticky) {
         setSticky(false);
       }
     }
-  }, [sticky, setSticky]);
-
-  useEffect(() => {
-    console.log(`Header is now ${sticky ? 'sticky' : 'not sticky'}`)
-  }, [sticky])
+  }, [headerHeight, ref, sticky, setSticky]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      console.log('Setting up window')
       window.addEventListener('scroll', scrolling);
     }
 
