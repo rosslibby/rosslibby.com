@@ -4,10 +4,9 @@ import { Cursor, Footer, Header } from '@/components';
 import { DocsProvider } from '@/docs-context';
 import { ViewfinderProvider } from '@/viewfinder-context';
 import { fontsClassname } from './fonts';
-import './globals.css';
 import Head from 'next/head';
 import styles from './template.module.css';
-// import '../components/docs/markdown.css';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Ross Libby',
