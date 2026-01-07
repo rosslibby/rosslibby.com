@@ -10,16 +10,15 @@
   },
   "dependencies": {
     "next": "^16.1.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-markdown": "^10.1.0",
-    "sass": "^1.89.1"
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-markdown": "^10.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "shiki": "^3.12.2",
-    "typescript": "^5"
+    "shiki": "^3.21.0",
+    "typescript": "^5.9.3"
   }
 }
