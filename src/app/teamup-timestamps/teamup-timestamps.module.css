@@ -4,7 +4,6 @@
   background-color: #0000001a;
   box-sizing: border-box;
   display: grid;
-  font-family: Google Sans;
   grid-template-columns: 1fr;
   grid-template-rows: min-content;
   height: 100%;
