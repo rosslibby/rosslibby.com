@@ -15,8 +15,14 @@ const outfit = Outfit({ subsets: ['latin'] });
 const rethink = Rethink_Sans({ subsets: ['latin'] });
 const roboto = Roboto({ subsets: ['latin'] });
 const mona = Mona_Sans({ subsets: ['latin'] });
-const google = Google_Sans({ subsets: ['latin'] });
-const googleCode = Google_Sans_Code({ subsets: ['latin'] });
+const google = Google_Sans({
+  adjustFontFallback: false,
+  subsets: ['latin'],
+});
+const googleCode = Google_Sans_Code({
+  adjustFontFallback: false,
+  subsets: ['latin'],
+});
 
 export const fontsClassname = [
   inter.className,
