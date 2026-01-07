@@ -1,11 +1,28 @@
 'use client'
 
-import { Block, Blocks, BlockTitle, Code } from '@/components';
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import { Block, Blocks, BlockTitle } from '@/components';
+import { Frame } from '@/components/code/frame';
 import styles from './teamup-timestamps.module.css';
 
-const BOOKMARKLET = "javascript:async function run(){let e=Array.from(document.querySelectorAll('[data-date]')),t=e.shift().dataset.date,a=e.pop().dataset.date;console.log(`[${t}] --> [${a}]`);let n=`events?startDate=${t}&endDate=${a}&tz=America%2FNew_York`,i=window.location.href,d=`${i}/${n}`,{events:r}=await fetch(d).then(e=>e.json()),l=r.filter(({subcalendar_id:e})=>14219147===e);l.map(({id:e,creation_dt:t})=>{let a=document.querySelector(`[class*='teamup-event-id-${e}']`);l.find(t=>t.id===e);let n=document.createElement('span');return n.textContent=new Date(t).toLocaleDateString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'}),a.appendChild(n),a})}run()";
+const BOOKMARKLET = "javascript:let k=JSON.parse([...document.querySelectorAll('script[nonce]')].find(s=>s.textContent.match(/var calendars =/)).textContent.match(/(?<=calendars: )(.*)/)[0]).map(c=>c.id);async function run(){let e=Array.from(document.querySelectorAll('[data-date]')),t=e.shift().dataset.date,a=e.pop().dataset.date;console.log(`[${t}] --> [${a}]`);let n=`events?startDate=${t}&endDate=${a}&tz=America/New_York`,i=window.location.href,d=`${i}/${n}`,{events:r}=await fetch(d).then(e=>e.json()),l=r.filter(({subcalendar_id:e})=>k.includes(e));l.map(({id:e,creation_dt:t})=>{let a=document.querySelector(`[class*='teamup-event-id-${e}']`);l.find(t=>t.id===e);let n=document.createElement('span');return n.textContent=new Date(t).toLocaleDateString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'}),a?.appendChild(n),a})}run()";
 
 export default function Page() {
+  const bookmarkletRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    let current: HTMLAnchorElement | null = bookmarkletRef.current;
+
+    if (current) {
+      current.href = BOOKMARKLET;
+    }
+
+    return () => {
+      current = null;
+    }
+  }, [bookmarkletRef]);
+
   return (
     <>
       <Blocks>
@@ -35,7 +52,14 @@ export default function Page() {
             </em>
           </Block>
           <Block style={{ padding: 0 }}>
-            <Code code={'1. Make sure your bookmarks bar is open.'} />
+            <Frame content={
+              <Image
+                width={480}
+                height={318}
+                src="/assets/gifs/show-favorites-bar-edge_1026x680.gif"
+                alt="How to open the Favorites bar in Microsoft Edge"
+              />
+            } />
           </Block>
         </Blocks>
         <hr />
@@ -50,7 +74,7 @@ export default function Page() {
             <h5>Next, drag this button into your bookmarks bar</h5>
 
             <div className={styles.bookmarklet}>
-              <a href={BOOKMARKLET} className={styles.bookmark}>
+              <a href="" className={styles.bookmark} draggable ref={bookmarkletRef}>
                 <span className={styles.handle}>
                   <span className={styles.dot} />
                   <span className={styles.dot} />
@@ -72,7 +96,14 @@ export default function Page() {
             </div>
           </Block>
           <Block style={{ padding: 0 }}>
-            <Code code={'1. Make sure your bookmarks bar is open.'} />
+            <Frame content={
+              <Image
+                width={480}
+                height={318}
+                src="/assets/gifs/add-bookmarklet-to-bookmarks-bar_1024x680.gif"
+                alt="How to add a bookmarklet to the bookmarks bar in Microsoft Edge"
+              />
+            } />
           </Block>
         </Blocks>
         <hr />
@@ -89,7 +120,14 @@ export default function Page() {
             <p>When you are viewing a Teamup calendar, you can reveal the event-creation times by clicking the "Show timestamps" bookmark.</p>
           </Block>
           <Block style={{ padding: 0 }}>
-            <Code code={'1. Make sure your bookmarks bar is open.'} />
+            <Frame content={
+              <Image
+                width={480}
+                height={318}
+                src="/assets/gifs/show-teamup-timestamps_1020x680.gif"
+                alt="How to view Teamup timestamps"
+              />
+            } />
           </Block>
         </Blocks>
       </div>

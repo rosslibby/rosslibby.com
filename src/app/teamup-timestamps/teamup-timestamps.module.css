@@ -60,10 +60,10 @@ a.bookmark {
   display: inline-flex;
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  border: 1px dashed #ffffff3e;
-  border-radius: 2px;
+  border: 6px solid var(--bg-main);
+  box-sizing: content-box;
+  border-radius: 10px;
   background-color: #fff;
-  box-shadow: 0 1px 0px 1px #00000010;
   color: var(--border-color);
   text-decoration: none;
   font-size: 1rem;
@@ -72,7 +72,9 @@ a.bookmark {
   width: 15rem;
 
   &:hover {
+    color: var(--border-color);
     cursor: move;
+    outline: 2px solid var(--accent-color);
   }
 
   .name {
@@ -97,6 +99,7 @@ a.bookmark {
       border-radius: 4px;
       display: block;
       height: .25rem;
+      opacity: .5;
       width: .25rem;
     }
   }
