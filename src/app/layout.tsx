@@ -7,6 +7,7 @@ import { fontsClassname } from './fonts';
 import Head from 'next/head';
 import styles from './template.module.css';
 import './globals.css';
+import { Lightbox, LightboxProvider } from '@/components/lightbox';
 
 export const metadata: Metadata = {
   title: 'Ross Libby',
@@ -37,21 +38,18 @@ export default function RootLayout({
           type="image/svg"
         />
       </Head>
-      <CursorProvider>
+      <LightboxProvider>
         <body className={[
           fontsClassname,
           styles.layout,
         ].join(' ')}>
-          <ViewfinderProvider>
-            <DocsProvider>
-              <Header />
-              {children}
-              <Footer />
-              <Cursor />
-            </DocsProvider>
-          </ViewfinderProvider>
+          <Header />
+          {children}
+          <Footer />
+          <Cursor />
+          <Lightbox />
         </body>
-      </CursorProvider>
+      </LightboxProvider>
     </html>
   );
 }

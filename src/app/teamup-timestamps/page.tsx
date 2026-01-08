@@ -5,11 +5,13 @@ import Image from 'next/image';
 import { Block, Blocks, BlockTitle } from '@/components';
 import { Frame } from '@/components/code/frame';
 import styles from './teamup-timestamps.module.css';
+import { useLightbox } from '@/components/lightbox/hooks';
 
 const BOOKMARKLET = "javascript:let k=JSON.parse([...document.querySelectorAll('script[nonce]')].find(s=>s.textContent.match(/var calendars =/)).textContent.match(/(?<=calendars: )(.*)/)[0]).map(c=>c.id);async function run(){let e=Array.from(document.querySelectorAll('[data-date]')),t=e.shift().dataset.date,a=e.pop().dataset.date;console.log(`[${t}] --> [${a}]`);let n=`events?startDate=${t}&endDate=${a}&tz=America/New_York`,i=window.location.href,d=`${i}/${n}`,{events:r}=await fetch(d).then(e=>e.json()),l=r.filter(({subcalendar_id:e})=>k.includes(e));l.map(({id:e,creation_dt:t})=>{let a=document.querySelector(`[class*='teamup-event-id-${e}']`);l.find(t=>t.id===e);let n=document.createElement('span');return n.textContent=new Date(t).toLocaleDateString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'}),a?.appendChild(n),a})}run()";
 
 export default function Page() {
   const bookmarkletRef = useRef<HTMLAnchorElement>(null);
+  const { trigger } = useLightbox();
 
   useEffect(() => {
     let current: HTMLAnchorElement | null = bookmarkletRef.current;
@@ -58,6 +60,20 @@ export default function Page() {
                 height={318}
                 src="/assets/gifs/show-favorites-bar-edge_1026x680.gif"
                 alt="How to open the Favorites bar in Microsoft Edge"
+                onClick={() => trigger(
+                  <div style={{
+                    aspectRatio: '1026 / 680',
+                    position: 'relative',
+                  }}>
+                    <Image
+                      fill
+                      style={{ left: '50%', transform: 'translateX(-50%)' }}
+                      src="/assets/gifs/show-favorites-bar-edge_1026x680.gif"
+                      alt="How to open the Favorites bar in Microsoft Edge"
+                    />
+                  </div>,
+                  'How to open the Favorites bar in Microsoft Edge',
+                )}
               />
             } />
           </Block>
@@ -102,6 +118,20 @@ export default function Page() {
                 height={318}
                 src="/assets/gifs/add-bookmarklet-to-bookmarks-bar_1024x680.gif"
                 alt="How to add a bookmarklet to the bookmarks bar in Microsoft Edge"
+                onClick={() => trigger(
+                  <div style={{
+                    aspectRatio: '1024 / 680',
+                    position: 'relative',
+                  }}>
+                    <Image
+                      fill
+                      style={{ left: '50%', transform: 'translateX(-50%)' }}
+                      src="/assets/gifs/add-bookmarklet-to-bookmarks-bar_1024x680.gif"
+                      alt="How to add a bookmarklet to the bookmarks bar in Microsoft Edge"
+                    />
+                  </div>,
+                  'How to add a bookmarklet to the bookmarks bar in Microsoft Edge',
+                )}
               />
             } />
           </Block>
@@ -126,6 +156,20 @@ export default function Page() {
                 height={318}
                 src="/assets/gifs/show-teamup-timestamps_1020x680.gif"
                 alt="How to view Teamup timestamps"
+                onClick={() => trigger(
+                  <div style={{
+                    aspectRatio: '1020 / 680',
+                    position: 'relative',
+                  }}>
+                    <Image
+                      fill
+                      style={{ left: '50%', transform: 'translateX(-50%)' }}
+                      src="/assets/gifs/show-teamup-timestamps_1020x680.gif"
+                      alt="How to view Teamup timestamps"
+                    />
+                  </div>,
+                  'How to view Teamup timestamps',
+                )}
               />
             } />
           </Block>
