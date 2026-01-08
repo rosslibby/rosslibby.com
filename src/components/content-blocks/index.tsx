@@ -1,9 +1,8 @@
-'use client';
-import styles from './content-blocks.module.scss';
+import styles from './content-blocks.module.css';
 
 export const BlockTitle = ({ title, subtitle }: {
-  title: string;
-  subtitle?: string;
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
 }) => {
   return (
     <Block className={styles.titleBlock}>

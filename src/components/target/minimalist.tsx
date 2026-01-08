@@ -4,7 +4,7 @@ import { useContext, useRef } from 'react';
 import { cursorCtx } from '@/cursor-context';
 import { viewfinderCtx } from '@/viewfinder-context';
 import { Viewfinder } from '@/components';
-import styles from './target.module.scss';
+import styles from './target.module.css';
 
 type TargetProps = {
   children: React.ReactNode;

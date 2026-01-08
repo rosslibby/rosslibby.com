@@ -5,7 +5,7 @@ import { TargetInsight } from '@/types';
 import { viewfinderCtx } from '@/viewfinder-context';
 import { cursorCtx } from '@/cursor-context';
 import { Viewfinder } from '../viewfinder';
-import styles from './target.module.scss';
+import styles from './target.module.css';
 
 export const Target = ({ children, id, insights }: {
   children: React.ReactNode;

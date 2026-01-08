@@ -1,7 +1,7 @@
 'use client'
 
 import { useCursor } from './hooks';
-import styles from './cursor.module.scss';
+import styles from './cursor.module.css';
 
 export * from './hooks';
 

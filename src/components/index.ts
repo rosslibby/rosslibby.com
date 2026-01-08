@@ -5,6 +5,7 @@ export * from './cursor';
 export * from './docs';
 export * from './drawer';
 export * from './feature';
+export * from './footer';
 export * from './header';
 export * from './hero';
 export * from './intro';

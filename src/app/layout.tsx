@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import { CursorProvider } from '@/cursor-context';
-import { Cursor } from '@/components';
+import { Cursor, Footer, Header } from '@/components';
 import { DocsProvider } from '@/docs-context';
 import { ViewfinderProvider } from '@/viewfinder-context';
 import { fontsClassname } from './fonts';
-import './globals.css';
 import Head from 'next/head';
-// import '../components/docs/markdown.css';
+import styles from './template.module.css';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Ross Libby',
@@ -38,10 +38,15 @@ export default function RootLayout({
         />
       </Head>
       <CursorProvider>
-        <body className={fontsClassname}>
+        <body className={[
+          fontsClassname,
+          styles.layout,
+        ].join(' ')}>
           <ViewfinderProvider>
             <DocsProvider>
+              <Header />
               {children}
+              <Footer />
               <Cursor />
             </DocsProvider>
           </ViewfinderProvider>

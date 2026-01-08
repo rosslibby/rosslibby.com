@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { useDrawerCode } from './hooks';
-import styles from './code.module.scss';
+import styles from './code.module.css';
 
 export const Code = () => {
   const codeRef = useRef<HTMLElement>(null);

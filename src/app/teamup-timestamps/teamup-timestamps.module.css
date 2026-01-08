@@ -1,0 +1,105 @@
+.main {
+  align-items: center;
+  background-color: #0d1117;
+  background-color: #0000001a;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content;
+  height: 100%;
+  left: 0;
+  padding: 5rem;
+  place-items: center;
+  top: 0;
+  width: 100vw;
+}
+
+.instr {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .explanation {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    gap: .5rem;
+
+    strong {
+      font-weight: 600;
+    }
+
+    code {
+      background-color: var(--border-color);
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: 'Google Sans Code';
+      font-size: .875rem;
+      padding: 3px 6px 2px;
+    }
+  }
+}
+
+.instructions {
+  .code {
+    background-color: #0000001a;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 2px;
+  }
+
+  .commands {
+    line-height: 26px;
+  }
+}
+
+a.bookmark {
+  align-items: center;
+  display: inline-flex;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  border: 6px solid var(--bg-main);
+  box-sizing: content-box;
+  border-radius: 10px;
+  background-color: #fff;
+  color: var(--border-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 3rem;
+  width: 15rem;
+
+  &:hover {
+    color: var(--border-color);
+    cursor: move;
+    outline: 2px solid var(--accent-color);
+  }
+
+  .name {
+    text-align: center;
+    width: 100%;
+  }
+
+  .handle {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    height: 100%;
+    padding: .5rem;
+    width: 100%;
+    transform: scale(.8);
+
+    .dot {
+      align-self: center;
+      justify-self: center;
+      background-color: var(--border-color);
+      border-radius: 4px;
+      display: block;
+      height: .25rem;
+      opacity: .5;
+      width: .25rem;
+    }
+  }
+}

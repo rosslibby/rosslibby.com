@@ -2,13 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Block, Blocks, BlockTitle } from '@/components';
 
-export const Hero = () => {
+type HeroProps = {
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
+}
+export const Hero = ({ title, subtitle }: HeroProps) => {
   return (
     <>
       <Blocks>
         <BlockTitle
-          title="Fullstack Node/Typescript Maven"
-          subtitle="From vision to production, I build software that lasts. I thrive on creating scalable systems and impactful user experiences that stand the test of time."
+          title={title}
+          subtitle={subtitle}
         />
       </Blocks>
       <Blocks columns="repeat(3, 1fr)" style={{ maxWidth: '40rem', zIndex: 2 }}>

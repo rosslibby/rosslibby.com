@@ -3,7 +3,7 @@
 import { createContext, useContext, useState } from 'react';
 import { DrawerCtx, InsightTarget } from '@/types';
 import { cursorCtx } from '@/cursor-context';
-import styles from './drawer-provider.module.scss';
+import styles from './drawer-provider.module.css';
 
 export const drawerCtx = createContext<DrawerCtx>({
   target: null,

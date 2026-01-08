@@ -1,0 +1,21 @@
+.target {
+  position: relative;
+  width: max-content;
+
+  &[data-focused="true"] {
+    cursor: none;
+    position: relative;
+    z-index: 3;
+  }
+
+  &:hover {
+    cursor: none !important;
+  }
+
+  .component {
+    position: relative;
+    z-index: 2;
+
+    width: max-content;
+  }
+}

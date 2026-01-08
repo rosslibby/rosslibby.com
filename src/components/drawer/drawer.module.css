@@ -1,0 +1,76 @@
+.drawer {
+  background-color: #0e131bd1;
+  background-color: #0e131b;
+  background: #171d26;
+  background: #131821;
+  background: #161b24;
+  background: #151b24;
+  background: #0f151ce6;
+  background: #141923d3;
+  background: #151b24;
+  backdrop-filter: blur(4px);
+  backdrop-filter: blur(29px);
+
+  box-sizing: border-box;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(4, 1fr);
+  height: 100%;
+  overflow: auto;
+  padding: 1.25rem;
+  position: fixed;
+  left: 100%;
+  scrollbar-width: none;
+  top: 0;
+  transform: translateX(0%);
+  transition: all 150ms linear;
+  width: 40vw;
+  z-index: 4;
+
+  &[data-targeting] {
+    transform: translateX(-100%);
+  }
+  &--show {
+    transform: translateX(0%);
+  }
+  &--hide {
+    transform: translateX(100%);
+  }
+
+  .component {
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: grid;
+    padding: 2rem;
+    place-content: center;
+  }
+}
+
+.tooltip {
+  box-sizing: border-box;
+  display: grid;
+  gap: 2rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 18rem;
+  min-width: 24rem;
+  width: max-content;
+  height: max-content;
+  padding: 1.25rem;
+  position: fixed;
+  grid-template-rows: max-content max-content;
+  border-radius: 8px;
+  background-color: #3d87ff;
+  transition: all 150ms linear;
+  z-index: 4;
+
+  .component {
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: grid;
+    padding: 2rem;
+    place-content: center;
+  }
+}

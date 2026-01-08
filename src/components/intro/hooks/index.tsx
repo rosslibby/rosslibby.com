@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { useTyping } from './typing';
-import styles from '../intro.module.scss';
+import styles from '../intro.module.css';
 
 const _descriptors = [
   'a Staff software engineer',

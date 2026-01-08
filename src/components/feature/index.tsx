@@ -1,6 +1,7 @@
 'use client';
+
 import { Code } from '../code';
-import styles from './feature.module.scss';
+import styles from './feature.module.css';
 
 export const Feature = ({ children }: {
   children: React.ReactNode;
@@ -45,20 +46,8 @@ const openSource = [
 ];
 
 export const FeatureDemo = () => {
-  const redisHub = [
-    `// Publisher\nconst pub = await redisClient('publisher');`,
-    `await pub.publish('my-channel', 'hello world');`,
-    '',
-    `// Subscriber`,
-    `const sub = await redisClient('subscriber');`,
-    `await sub.subscribe('my-channel', (message) => {`,
-    `  console.log('Got message:', message);`,
-    `});`,
-  ];
-
   return (
     <div className={styles.section} style={{
-      // background: 'linear-gradient(to bottom, #886cff, #31386a 117%)',
       background: 'linear-gradient(to bottom, #0d1116, #31386a 117%)',
       marginTop: '4rem',
     }}>
