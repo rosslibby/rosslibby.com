@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { lightboxCtx } from './context';
 
 export const LightboxProvider = ({ children }: {
@@ -9,6 +9,10 @@ export const LightboxProvider = ({ children }: {
   const [content, setContent] = useState<React.ReactNode | null>(null);
   const [details, setDetails] = useState('');
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.documentElement?.classList?.toggle('prevent-scroll', open);
+  }, [open]);
 
   return <lightboxCtx.Provider value={{
     content,
