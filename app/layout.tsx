@@ -30,26 +30,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark">
-      <Head>
-        <link
-          rel="apple-touch-icon"
-          href="/apple-touch-icon.svg"
-          type="image/svg"
-        />
-      </Head>
-      <LightboxProvider>
-        <body className={[
-          fontsClassname,
-          styles.layout,
-        ].join(' ')}>
-          <Header />
-          {children}
-          <Footer />
-          <Cursor />
-          <Lightbox />
-        </body>
-      </LightboxProvider>
-    </html>
+    <LightboxProvider>
+      <html lang="en" data-theme="dark">
+        <Head>
+          <link
+            rel="apple-touch-icon"
+            href="/apple-touch-icon.svg"
+            type="image/svg"
+          />
+        </Head>
+          <body className={[
+            fontsClassname,
+            styles.layout,
+          ].join(' ')}>
+            <Header />
+            {children}
+            <Footer />
+            <Cursor />
+            <Lightbox />
+          </body>
+      </html>
+    </LightboxProvider>
   );
 }
