@@ -116,3 +116,7 @@ hr {
     border-top: 2px solid #000000;
   }
 }
+
+.prevent-scroll {
+  overflow: hidden;
+}
