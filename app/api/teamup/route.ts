@@ -1,8 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
-import { env } from '@notross/dotenv-config';
 import { CalendarEventPayload } from '@/types';
-const { auth, cron, teamup } = env();
+const auth = {
+  token: process.env.AUTH_TOKEN as string,
+};
+const cron = {
+  endpoint: process.env.CRON_ENDPOINT as string,
+  apiKey: process.env.CRON_API_KEY as string,
+};
+const teamup = {
+  host: process.env.TEAMUP_HOST as string,
+};
 
 export async function POST(req: NextRequest) {
   const headersList = await headers();
@@ -24,7 +32,6 @@ export async function POST(req: NextRequest) {
     subcalendarId: subcalendarId.toString(),
   });
   const url = `${protocol}://${host}/api/teamup?${query}`;
-  console.log('[cron]', cron)
   return fetch(`${cron.endpoint}/schedules`, {
     method: 'POST',
     headers: {
