@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
     subcalendarId: subcalendarId.toString(),
   });
   const url = `${protocol}://${host}/api/teamup?${query}`;
+  console.log(`⚡️ prepped run: ${url}`)
   return fetch(`https://cronhooks.io/schedules`, {
     method: 'POST',
     headers: {
