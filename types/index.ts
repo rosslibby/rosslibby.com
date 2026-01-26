@@ -4,6 +4,7 @@ import { TargetInsight } from './target';
 export * from './docs';
 export * from './drawer';
 export * from './target';
+export * from './teamup';
 
 export interface ViewfinderCtx {
   focusing: string | null;
