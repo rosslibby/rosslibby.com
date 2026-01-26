@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
-import { env } from '@notross/dotenv-config';
 import { CalendarEventPayload } from '@/types';
-
-const { cron } = env();
 
 export async function POST(req: NextRequest) {
   const headersList = await headers();
@@ -45,11 +42,11 @@ export async function POST(req: NextRequest) {
     },
   };
 
-  return fetch(`${cron.endpoint}/schedules`, {
+  return fetch(`https://api.cronhooks.io/schedules`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${cron.apiKey}`,
+      'Authorization': `Bearer ${process.env.CRON_API_KEY as string}`,
     },
     body: JSON.stringify(body),
   })
