@@ -3,14 +3,6 @@ import { headers } from 'next/headers';
 import { CalendarEventPayload } from '@/types';
 
 export async function POST(req: NextRequest) {
-  const auth = {
-    token: process.env.AUTH_TOKEN as string,
-  };
-  const cron = {
-    endpoint: process.env.CRON_ENDPOINT as string,
-    apiKey: process.env.CRON_API_KEY as string,
-  };
-
   const headersList = await headers();
   const host = headersList.get('host') as string;
   const protocol = headersList.get('x-forwarded-proto') ||
@@ -30,11 +22,11 @@ export async function POST(req: NextRequest) {
     subcalendarId: subcalendarId.toString(),
   });
   const url = `${protocol}://${host}/api/teamup?${query}`;
-  return fetch(`https://api.cronhooks.io/schedules`, {
+  return fetch(`https://cronhooks.io/schedules`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${cron.apiKey}`,
+      'Authorization': `Bearer ${process.env.CRON_API_KEY as string}`,
     },
     body: JSON.stringify({
       url,
@@ -51,7 +43,7 @@ export async function POST(req: NextRequest) {
       retryCount: 2,
       retryIntervalSeconds: 1,
       headers: {
-        Authorization: `Bearer ${auth.token}`,
+        Authorization: `Bearer ${process.env.AUTH_TOKEN as string}`,
       },
     }),
   })
@@ -72,14 +64,11 @@ export async function GET(req: NextRequest) {
 }
 
 async function submit(calendarId: string, payload: CalendarEventPayload) {
-  const teamup = {
-    host: process.env.TEAMUP_HOST as string,
-  };
   const headers = new Headers({
     'Content-Type': 'application/json',
   });
   const query = new URLSearchParams({ tz: 'America/New_York' });
-  const endpoint = `${teamup.host}/${calendarId}/events?${query}`;
+  const endpoint = `https://teamup.com/${calendarId}/events?${query}`;
   return fetch(endpoint, {
     method: 'POST',
     headers,
