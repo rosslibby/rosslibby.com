@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
+import { env } from '@notross/dotenv-config';
 import { CalendarEventPayload } from '@/types';
+
+const { cron } = env();
 
 export async function POST(req: NextRequest) {
   const headersList = await headers();
@@ -23,30 +26,32 @@ export async function POST(req: NextRequest) {
   });
   const url = `${protocol}://${host}/api/teamup?${query}`;
   console.log(`⚡️ prepped run: ${url}`)
-  return fetch(`https://cronhooks.io/schedules`, {
+  const body = {
+    url,
+    title: event,
+    name,
+    timezone: 'America/New_York',
+    method: 'GET',
+    contentType: 'application/json',
+    isRecurring: false,
+    runAt,
+    sendCronhookObject: true,
+    sendFailureAlert: true,
+    cronExpression: '',
+    retryCount: 2,
+    retryIntervalSeconds: 1,
+    headers: {
+      'Authorization': 'Bearer {{AUTH_TOKEN}}',
+    },
+  };
+
+  return fetch(`${cron.endpoint}/schedules`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.CRON_API_KEY as string}`,
+      'Authorization': `Bearer ${cron.apiKey}`,
     },
-    body: JSON.stringify({
-      url,
-      title: event,
-      name,
-      timezone: 'America/New_York',
-      method: 'GET',
-      contentType: 'application/json',
-      isRecurring: false,
-      runAt,
-      sendCronhookObject: true,
-      sendFailureAlert: true,
-      cronExpression: '',
-      retryCount: 2,
-      retryIntervalSeconds: 1,
-      headers: {
-        Authorization: `Bearer ${process.env.AUTH_TOKEN as string}`,
-      },
-    }),
+    body: JSON.stringify(body),
   })
     .then((res) => res.json())
     .then(NextResponse.json);
