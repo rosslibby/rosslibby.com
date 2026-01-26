@@ -1,18 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { CalendarEventPayload } from '@/types';
-const auth = {
-  token: process.env.AUTH_TOKEN as string,
-};
-const cron = {
-  endpoint: process.env.CRON_ENDPOINT as string,
-  apiKey: process.env.CRON_API_KEY as string,
-};
-const teamup = {
-  host: process.env.TEAMUP_HOST as string,
-};
 
 export async function POST(req: NextRequest) {
+  const auth = {
+    token: process.env.AUTH_TOKEN as string,
+  };
+  const cron = {
+    endpoint: process.env.CRON_ENDPOINT as string,
+    apiKey: process.env.CRON_API_KEY as string,
+  };
+
   const headersList = await headers();
   const host = headersList.get('host') as string;
   const protocol = headersList.get('x-forwarded-proto') ||
@@ -74,6 +72,9 @@ export async function GET(req: NextRequest) {
 }
 
 async function submit(calendarId: string, payload: CalendarEventPayload) {
+  const teamup = {
+    host: process.env.TEAMUP_HOST as string,
+  };
   const headers = new Headers({
     'Content-Type': 'application/json',
   });
