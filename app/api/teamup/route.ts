@@ -1,7 +1,57 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { headers } from 'next/headers';
 import { env } from '@notross/dotenv-config';
 import { CalendarEventPayload } from '@/types';
-const { teamup } = env();
+const { auth, cron, teamup } = env();
+
+export async function POST(req: NextRequest) {
+  const headersList = await headers();
+  const host = headersList.get('host') as string;
+  const protocol = headersList.get('x-forwarded-proto') ||
+    (host.includes('localhost') ? 'http' : 'https');
+  const searchParams = req.nextUrl.searchParams;
+  const runAt = searchParams.get('runAt') as string;
+  const date = searchParams.get('date') as string;
+  const title = searchParams.get('title') as string;
+  const event = searchParams.get('event') as string;
+  const name = searchParams.get('name') as string;
+  const calendarId = searchParams.get('calendarId') as string;
+  const subcalendarId = Number(searchParams.get('subcalendarId') as string);
+  const query = new URLSearchParams({
+    date: date,
+    title: title,
+    calendarId: calendarId,
+    subcalendarId: subcalendarId.toString(),
+  });
+  const url = `${protocol}://${host}/api/teamup?${query}`;
+  return fetch(`${cron.endpoint}/schedules`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${cron.apiKey}`,
+    },
+    body: JSON.stringify({
+      url,
+      title: event,
+      name,
+      timezone: 'America/New_York',
+      method: 'GET',
+      contentType: 'application/json',
+      isRecurring: false,
+      runAt,
+      sendCronhookObject: true,
+      sendFailureAlert: true,
+      cronExpression: '',
+      retryCount: 2,
+      retryIntervalSeconds: 1,
+      headers: {
+        Authorization: `Bearer ${auth.token}`,
+      },
+    }),
+  })
+    .then((res) => res.json())
+    .then(NextResponse.json);
+}
 
 export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl.searchParams;
