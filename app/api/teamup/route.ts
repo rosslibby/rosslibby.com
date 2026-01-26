@@ -24,6 +24,7 @@ export async function POST(req: NextRequest) {
     subcalendarId: subcalendarId.toString(),
   });
   const url = `${protocol}://${host}/api/teamup?${query}`;
+  console.log('[cron]', cron)
   return fetch(`${cron.endpoint}/schedules`, {
     method: 'POST',
     headers: {
