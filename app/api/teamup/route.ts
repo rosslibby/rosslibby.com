@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
     subcalendarId: subcalendarId.toString(),
   });
   const url = `${protocol}://${host}/api/teamup?${query}`;
-  return fetch(`${cron.endpoint}/schedules`, {
+  return fetch(`https://api.cronhooks.io/schedules`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
