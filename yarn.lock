@@ -201,6 +201,13 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-16.1.1.tgz#96e9e335e2577481dab6fc7a2af48f3e4a28fbdb"
   integrity sha512-Ncwbw2WJ57Al5OX0k4chM68DKhEPlrXBaSXDCi2kPi5f4d8b3ejr3RRJGfKBLrn2YJL5ezNS7w2TZLHSti8CMw==
 
+"@notross/dotenv-config@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@notross/dotenv-config/-/dotenv-config-2.2.0.tgz#4b26c0a27482fe64a56a12bd810e39db9707d992"
+  integrity sha512-xzngKJOSjT0tSyhiy9IeBOBGb4P1om4msf6Y6UziqA7BA2xowU2HPBbKWfyK/p0tO4vV9QE/WYNpSvwXsm2eiw==
+  dependencies:
+    dotenv "^17.2.1"
+
 "@shikijs/core@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@shikijs/core/-/core-3.21.0.tgz#9641d09865c43612b28e7931f9af68c8a62edd90"
@@ -419,6 +426,11 @@ devlop@^1.0.0, devlop@^1.1.0:
   integrity sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA==
   dependencies:
     dequal "^2.0.0"
+
+dotenv@^17.2.1:
+  version "17.2.3"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-17.2.3.tgz#ad995d6997f639b11065f419a22fabf567cdb9a2"
+  integrity sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==
 
 estree-util-is-identifier-name@^3.0.0:
   version "3.0.0"
