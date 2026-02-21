@@ -87,6 +87,45 @@ export default function Page() {
         <hr />
         <Blocks {...{ columns: '6fr 6fr', collapse: true }}>
           <Block style={{ justifyContent: 'start' }}>
+            <h5>If you already have the "Show timestamps" bookmarklet, remove it.</h5>
+            <p>Right-click on the bookmarklet and click "Delete".</p>
+            <em className={styles.explanation}>
+              <span>If you do not have the "Show timestamps" bookmarklet, skip to step 3.</span>
+            </em>
+          </Block>
+          <Block style={{ padding: 0 }}>
+            <Frame content={
+              <Image
+                width={480}
+                height={318}
+                src="/assets/gifs/delete-bookmarklet-1080p.gif"
+                alt="How to add a bookmarklet to the bookmarks bar in Microsoft Edge"
+                onClick={() => trigger(
+                  <div style={{
+                    aspectRatio: '1024 / 680',
+                    position: 'relative',
+                  }}>
+                    <Image
+                      fill
+                      style={{ left: '50%', transform: 'translateX(-50%)' }}
+                      src="/assets/gifs/delete-bookmarklet-1080p.gif"
+                      alt="How to delete a bookmarklet from the bookmarks bar in Microsoft Edge"
+                    />
+                  </div>,
+                  'How to delete a bookmarklet from the bookmarks bar in Microsoft Edge',
+                )}
+              />
+            } />
+          </Block>
+        </Blocks>
+        <Blocks>
+          <Block>
+            <h3>Step 3</h3>
+          </Block>
+        </Blocks>
+        <hr />
+        <Blocks {...{ columns: '6fr 6fr', collapse: true }}>
+          <Block style={{ justifyContent: 'start' }}>
             <h5>Next, drag this button into your bookmarks bar</h5>
 
             <div className={styles.bookmarklet}>
@@ -99,7 +138,7 @@ export default function Page() {
                   <span className={styles.dot} />
                   <span className={styles.dot} />
                 </span>
-                <span className={styles.name}>Show timestamps</span>
+                <span className={styles.name}>Timestamps 2.0</span>
                 <span className={styles.handle}>
                   <span className={styles.dot} />
                   <span className={styles.dot} />
@@ -116,7 +155,7 @@ export default function Page() {
               <Image
                 width={480}
                 height={318}
-                src="/assets/gifs/add-bookmarklet-to-bookmarks-bar_1024x680.gif"
+                src="/assets/gifs/add-timestamps-2-0-to-bookmarks-bar-1080p.gif"
                 alt="How to add a bookmarklet to the bookmarks bar in Microsoft Edge"
                 onClick={() => trigger(
                   <div style={{
@@ -126,7 +165,7 @@ export default function Page() {
                     <Image
                       fill
                       style={{ left: '50%', transform: 'translateX(-50%)' }}
-                      src="/assets/gifs/add-bookmarklet-to-bookmarks-bar_1024x680.gif"
+                      src="/assets/gifs/add-timestamps-2-0-to-bookmarks-bar-1080p.gif"
                       alt="How to add a bookmarklet to the bookmarks bar in Microsoft Edge"
                     />
                   </div>,
@@ -139,7 +178,7 @@ export default function Page() {
         <hr />
         <Blocks>
           <Block>
-            <h3>Step 3</h3>
+            <h3>Step 4</h3>
           </Block>
         </Blocks>
         <hr />
@@ -147,14 +186,14 @@ export default function Page() {
           <Block style={{ justifyContent: 'start' }}>
             <h5>Open your Teamup calendar.</h5>
 
-            <p>When you are viewing a Teamup calendar, you can reveal the event-creation times by clicking the "Show timestamps" bookmark.</p>
+            <p>When you are viewing a Teamup calendar, you can reveal the event-creation times by clicking the "Timestamps" bookmark.</p>
           </Block>
           <Block style={{ padding: 0 }}>
             <Frame content={
               <Image
                 width={480}
                 height={318}
-                src="/assets/gifs/show-teamup-timestamps_1020x680.gif"
+                src="/assets/gifs/use-timestamps-2-0-bookmarklet-with-teamup-1080p.gif"
                 alt="How to view Teamup timestamps"
                 onClick={() => trigger(
                   <div style={{
@@ -164,7 +203,7 @@ export default function Page() {
                     <Image
                       fill
                       style={{ left: '50%', transform: 'translateX(-50%)' }}
-                      src="/assets/gifs/show-teamup-timestamps_1020x680.gif"
+                      src="/assets/gifs/use-timestamps-2-0-bookmarklet-with-teamup-1080p.gif"
                       alt="How to view Teamup timestamps"
                     />
                   </div>,
