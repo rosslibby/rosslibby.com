@@ -33,8 +33,8 @@ export const RedisHub = () => {
     docs="https://raw.githubusercontent.com/rosslibby/redis-hub/refs/heads/main/README.md"
     link={{ title: '@notross/redis-hub', url: 'https://www.npmjs.com/package/@notross/redis-hub' }}
     reverse={true}
-    description="A minimal connection hub for Redis in Node.js, reusing named clients with centralized config and event tracking."
-    origin="Started as a Mongo-style singleton, then expanded to handle pub/sub without repeating publisher, subscriber, and client logic."
+    description="A minimal, zero-config connection hub for Redis in Node.js"
+    origin="Zero-config, lazy connection hub for Redis in Node.js. Lazily creates and reuses named Redis clients (publisher, subscriber, per-tenant, per-worker) with centralized configuration, per-client state tracking, and pluggable structured logging."
   />;
 };
 
@@ -45,8 +45,8 @@ export const MongoSingleton = () => <NpmPackage
   docs="https://raw.githubusercontent.com/rosslibby/mongo-singleton/refs/heads/main/README.md"
   insights={mongoSingletonInsights}
   link={{ title: '@notross/mongo-singleton', url: 'https://www.npmjs.com/package/@notross/mongo-singleton' }}
-  description="A zero-fuss way to share a single MongoDB connection across your codebase."
-  origin="Created to avoid duplicating database connection code across multiple services in one project - this made setup cleaner and DRYer."
+  description="Zero-config, plug-and-play MongoDB client management for Node.js"
+  origin="Zero-config, lazy-loading MongoDB client for Node.js. Configures automatically via environment variables and exposes top-level db and collection helpers for instant, zero-boilerplate database access."
 />;
 
 export const ReactWaveform = () => <NpmPackage
