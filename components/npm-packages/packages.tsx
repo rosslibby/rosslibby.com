@@ -1,21 +1,18 @@
 import { NpmPackage } from './package';
 
 const redisHubInsights = [
-  `// Publisher\nconst pub = await redisClient('publisher');`,
-  `await pub.publish('my-channel', 'hello world');`,
-  '',
-  `// Subscriber`,
-  `const sub = await redisClient('subscriber');`,
-  `await sub.subscribe('my-channel', (message) => {`,
-  `  console.log('Got message:', message);`,
-  `});`,
+  `import { RedisHub } from '@notross/redis-hub';`,
+  `\nconst publisher = await RedisHub.getClient('publisher');`,
+  `const subscriber = await RedisHub.getClient('subscriber');`,
+  `\nsubscriber.pSubscribe('chats', (msg) => {\n  console.log(\`New message: $\{msg\}\`);\n});`,
+  `await publisher.publish('chats', 'Hello, World!');`,
 ];
 
 const mongoSingletonInsights = [
   `import { collection } from '@notross/mongo-singleton';`,
   '',
-  `const getAccountById = async (id) => collection('accounts')`,
-  `  .then((accounts) => accounts.findOne({ _id: id }));`,
+  `const accounts = await collection('accounts');`,
+  `const getAccountByEmail = async (email) => {\n  return accounts.findOne({ email });\n};`,
 ];
 
 const reactWaveformInsights = [
